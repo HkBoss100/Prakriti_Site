@@ -1,0 +1,8 @@
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+  text-align: center;
+}
+h1 { margin-bottom: 1rem; }
+a, button { margin-top: 1rem; display: inline-block; }
+form select { padding: 0.5rem; }

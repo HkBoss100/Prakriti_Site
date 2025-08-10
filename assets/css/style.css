@@ -1,8 +1,52 @@
-body {
-  font-family: sans-serif;
-  padding: 2rem;
-  text-align: center;
+:root{
+  --bg:#fdfaf4;
+  --ink:#222;
+  --muted:#666;
+  --brand:#6b8e23;
+  --brand-dark:#56710d;
+  --accent:#a0522d;
+  --card:#fff;
+  --border:#e7e0d6;
 }
-h1 { margin-bottom: 1rem; }
-a, button { margin-top: 1rem; display: inline-block; }
-form select { padding: 0.5rem; }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background:var(--bg); color:var(--ink); line-height:1.6;
+}
+.container{max-width:980px; margin:0 auto; padding:0 16px}
+.site-header{position:sticky; top:0; z-index:10; background:var(--brand); color:#fff; border-bottom:1px solid rgba(0,0,0,.05)}
+.header-inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
+.logo{color:#fff; text-decoration:none; font-weight:700; letter-spacing:.2px}
+.nav{list-style:none; display:flex; gap:14px; margin:0; padding:0}
+.nav a{color:#fff; text-decoration:none; padding:6px 8px; border-radius:6px}
+.nav a:hover,.nav a:focus{background:rgba(255,255,255,.14)}
+.site-footer{margin-top:48px; background:#f3efe6; border-top:1px solid var(--border); padding:18px 0; color:var(--muted); font-size:.95rem}
+.hero{display:grid; grid-template-columns:1.3fr 1fr; gap:24px; align-items:stretch; padding:28px 16px 8px}
+.hero-text h1{font-size:clamp(28px,5vw,42px); margin:.2rem 0 8px}
+.hero-text p{font-size:1.05rem; color:#333; margin:0 0 16px}
+.hero-card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px}
+.tick-list{margin:0; padding-left:18px}
+.tick-list li{margin:6px 0}
+.features{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:20px}
+.feature{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px}
+.cta-row{display:flex; gap:12px; align-items:center; justify-content:center; margin:20px 0 0}
+.btn{display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; border:1px solid var(--border); background:#fff; color:var(--ink); font-weight:600}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent); border-color:var(--accent); color:#fff}
+.btn-primary:hover{background:#8a4527}
+.btn-secondary{background:var(--brand); border-color:var(--brand); color:#fff}
+.btn-secondary:hover{background:var(--brand-dark); color:#fff}
+.prose .note{color:var(--muted); font-size:.98rem}
+.spacer{height:8px}
+.quiz{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px}
+.mode-select{display:flex; align-items:center; gap:10px; margin-bottom:12px}
+.question{margin:14px 0; border:1px dashed var(--border); border-radius:12px; padding:12px}
+.question legend{font-weight:700}
+
+
+2. GitHub → **Settings → Pages** → **Branch: main** + **/(root)** → **Save**.
+3. Open `https://<user>.github.io/<repo>/`.
+
+> Educational only. Not medical advice.

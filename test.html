@@ -3,35 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Assessment</title>
+  <title>Assessment — Prakriti & Vikriti</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1>Dosha Assessment</h1>
-  <form id="dosha-form">
-    <label>Body Type:
-      <select name="q1">
-        <option value="vata">Thin</option>
-        <option value="pitta">Medium</option>
-        <option value="kapha">Heavy</option>
-      </select>
-    </label><br><br>
-    <label>Sleep Pattern:
-      <select name="q2">
-        <option value="vata">Light</option>
-        <option value="pitta">Moderate</option>
-        <option value="kapha">Deep</option>
-      </select>
-    </label><br><br>
-    <label>Digestion:
-      <select name="q3">
-        <option value="vata">Irregular</option>
-        <option value="pitta">Strong</option>
-        <option value="kapha">Slow</option>
-      </select>
-    </label><br><br>
-    <button type="submit">See My Dosha</button>
-  </form>
+  <header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">Know Your Dosha</a>
+    <nav aria-label="Primary">
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-ayurveda.html">About Ayurveda</a></li>
+        <li><a href="test.html">Take the Assessment</a></li>
+        <li><a href="lifestyle.html">Lifestyle</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <main class="container">
+    <h1>Dosha Assessment</h1>
+    <p>Select the option that fits you best for each question.</p>
+    <form id="dosha-form" class="quiz">
+      <div class="mode-select">
+        <label for="mode"><strong>Assessment mode:</strong></label>
+        <select id="mode" name="mode">
+          <option value="prakriti">Prakriti (your baseline)</option>
+          <option value="vikriti">Vikriti (how you are now)</option>
+        </select>
+      </div>
+
+      <fieldset class="question">
+        <legend>1) Body frame</legend>
+        <label><input type="radio" name="q1" value="vata" required> Thin, light, finds it hard to gain</label>
+        <label><input type="radio" name="q1" value="pitta"> Medium, athletic</label>
+        <label><input type="radio" name="q1" value="kapha"> Broad, heavier build, gains easily</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>2) Skin & hair</legend>
+        <label><input type="radio" name="q2" value="vata" required> Dry skin/hair, cool to touch</label>
+        <label><input type="radio" name="q2" value="pitta"> Warm, sensitive/flushes, fine hair</label>
+        <label><input type="radio" name="q2" value="kapha"> Oily, smooth skin, thick hair</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>3) Appetite & digestion</legend>
+        <label><input type="radio" name="q3" value="vata" required> Variable appetite, gas/bloating</label>
+        <label><input type="radio" name="q3" value="pitta"> Strong appetite, feels hungry often</label>
+        <label><input type="radio" name="q3" value="kapha"> Slow appetite, heaviness after meals</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>4) Sleep</legend>
+        <label><input type="radio" name="q4" value="vata" required> Light/irregular, wakes easily</label>
+        <label><input type="radio" name="q4" value="pitta"> Moderate, sometimes short</label>
+        <label><input type="radio" name="q4" value="kapha"> Deep, long, hard to wake</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>5) Temperature tolerance</legend>
+        <label><input type="radio" name="q5" value="vata" required> Dislikes cold/wind</label>
+        <label><input type="radio" name="q5" value="pitta"> Dislikes heat/sun</label>
+        <label><input type="radio" name="q5" value="kapha"> Dislikes damp/chilly weather</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>6) Energy patterns</legend>
+        <label><input type="radio" name="q6" value="vata" required> Burst of energy, then fatigue</label>
+        <label><input type="radio" name="q6" value="pitta"> Steady, driven, focused</label>
+        <label><input type="radio" name="q6" value="kapha"> Slow but enduring, relaxed</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>7) Mind & mood</legend>
+        <label><input type="radio" name="q7" value="vata" required> Fast thinker, worry/anxiety</label>
+        <label><input type="radio" name="q7" value="pitta"> Sharp, decisive, can be irritable</label>
+        <label><input type="radio" name="q7" value="kapha"> Calm, steady, can feel sluggish</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>8) Bowel habits</legend>
+        <label><input type="radio" name="q8" value="vata" required> Dry/constipated, irregular</label>
+        <label><input type="radio" name="q8" value="pitta"> Loose, burning tendency</label>
+        <label><input type="radio" name="q8" value="kapha"> Sluggish, heavy</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>9) Weight tendency</legend>
+        <label><input type="radio" name="q9" value="vata" required> Stays light/underweight</label>
+        <label><input type="radio" name="q9" value="pitta"> Stable/medium</label>
+        <label><input type="radio" name="q9" value="kapha"> Gains easily, hard to lose</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>10) Hair & scalp</legend>
+        <label><input type="radio" name="q10" value="vata" required> Dry, frizzy, dandruff-prone</label>
+        <label><input type="radio" name="q10" value="pitta"> Fine, early greying/hairfall</label>
+        <label><input type="radio" name="q10" value="kapha"> Thick, oily, strong</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>11) Voice & speech</legend>
+        <label><input type="radio" name="q11" value="vata" required> Fast, variable, sometimes shaky</label>
+        <label><input type="radio" name="q11" value="pitta"> Clear, direct, assertive</label>
+        <label><input type="radio" name="q11" value="kapha"> Slow, smooth, soft</label>
+      </fieldset>
+
+      <fieldset class="question">
+        <legend>12) Food cravings</legend>
+        <label><input type="radio" name="q12" value="vata" required> Dry/light (crackers, popcorn)</label>
+        <label><input type="radio" name="q12" value="pitta"> Spicy/sour (pickles, chips)</label>
+        <label><input type="radio" name="q12" value="kapha"> Sweet/heavy (desserts, creamy)</label>
+      </fieldset>
+
+      <div class="actions">
+        <button class="btn btn-primary" type="submit">See My Results</button>
+        <a class="btn btn-secondary" href="index.html">Cancel</a>
+      </div>
+    </form>
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>Educational use only. Not medical advice. © 2025 Know Your Dosha</p>
+  </div>
+</footer>
   <script src="assets/js/script.js"></script>
 </body>
 </html>

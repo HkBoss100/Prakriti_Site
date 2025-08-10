@@ -3,39 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Results — Prakriti & Vikriti</title>
+  <title>Your Dosha Result</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header class="site-header">
-  <div class="container header-inner">
-    <a class="logo" href="index.html">Know Your Dosha</a>
-    <nav aria-label="Primary">
-      <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about-ayurveda.html">About Ayurveda</a></li>
-        <li><a href="test.html">Take the Assessment</a></li>
-        <li><a href="lifestyle.html">Lifestyle</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="faq.html">FAQs</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Know Your Dosha</a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-ayurveda.html">About Ayurveda</a></li>
+          <li><a href="test.html">Take the Assessment</a></li>
+          <li><a href="lifestyle.html">Lifestyle</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <main class="container">
-    <h1>Your Results</h1>
-    <div id="results-wrap" class="results-grid"></div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="lifestyle.html">See Lifestyle Tips</a>
-      <a class="btn" href="test.html">Retake Assessment</a>
+    <h1>Your Dosha Result</h1>
+    <p id="result" class="result-text"></p>
+    <div class="actions">
+      <a class="btn btn-primary" href="lifestyle.html">See Recommended Lifestyle</a>
+      <a class="btn btn-secondary" href="test.html">Retake Quiz</a>
     </div>
   </main>
+
   <footer class="site-footer">
-  <div class="container">
-    <p>Educational use only. Not medical advice. © 2025 Know Your Dosha</p>
-  </div>
-</footer>
-  <script src="assets/js/script.js"></script>
+    <div class="container">
+      <p>Educational use only. Not medical advice. © 2025 Know Your Dosha</p>
+    </div>
+  </footer>
+
+  <script>
+    const out = document.getElementById('result');
+    if (out) {
+      const d = localStorage.getItem('dosha') || 'unknown';
+      out.textContent = `Your dominant dosha is ${d[0].toUpperCase() + d.slice(1)}.`;
+    }
+  </script>
 </body>
 </html>

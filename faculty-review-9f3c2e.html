@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faculty Review • Know Your Dosha</title>
+
+  <!-- Prevent indexing -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Site CSS (match design) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+
+  <style>
+    /* small, page-specific tweaks */
+    .nav-link i{ margin-right:.4rem; }
+    .card-ayu { border-radius: 14px; }
+    .quote-mark { font-size: 2rem; line-height: 1; opacity:.25; }
+    .soft { background: var(--soft, #faf7f2); }
+    .badge-ayu { background: var(--brand-brown, #8a4b2d); color:#fff; }
+    /* hide content until token validated */
+    body[data-locked="1"] #faculty-content { display:none; }
+    body[data-locked="1"] #locked-msg { display:block; }
+    #locked-msg { display:none; }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100" data-locked="1">
+  <!-- minimal skip link -->
+  <a class="visually-hidden-focusable position-absolute start-0 top-0 m-2 p-2 bg-white border rounded" href="#main">Skip to content</a>
+
+  <!-- Header (kept for visual consistency, no link to this page anywhere else) -->
+  <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Primary">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="index.html">
+        <i class="fa-solid fa-sun me-2" aria-hidden="true"></i>Know Your Dosha
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <!-- normal nav, but this hidden page is NOT linked anywhere -->
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun" aria-hidden="true"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle" aria-hidden="true"></i>About Ayurveda</a></li>
+          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll" aria-hidden="true"></i>Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling" aria-hidden="true"></i>Lifestyle</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf" aria-hidden="true"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om" aria-hidden="true"></i>FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja" aria-hidden="true"></i>About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- LOCKED MESSAGE (shows if token missing/wrong) -->
+  <main id="locked-msg" class="flex-grow-1">
+    <section class="py-5 soft border-bottom">
+      <div class="container">
+        <span class="badge rounded-pill badge-ayu mb-3"><i class="fa-solid fa-lock me-1"></i> Restricted</span>
+        <h1 class="display-6 mb-2">Page Not Available</h1>
+        <p class="text-muted mb-0">This page is restricted to faculty. Please use the exact link provided by the instructor.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FACULTY CONTENT -->
+  <main id="faculty-content" class="flex-grow-1">
+    <!-- Header band -->
+    <header class="py-5 soft border-bottom">
+      <div class="container">
+        <span class="badge rounded-pill badge-ayu mb-3">
+          <i class="fa-solid fa-user-shield me-1" aria-hidden="true"></i> Faculty Review
+        </span>
+        <h1 class="display-6 mb-1" style="color:var(--brand-brown);">Project Notes & Team Details</h1>
+        <p class="text-muted mb-0">Internal page for evaluation — not linked publicly; do not index.</p>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Team Table -->
+          <div class="col-lg-7">
+            <div class="card card-ayu shadow-sm h-100">
+              <div class="card-body">
+                <h2 class="h4 mb-3"><i class="fa-solid fa-people-group me-2" aria-hidden="true"></i>Team & Roles</h2>
+                <div class="table-responsive">
+                  <table class="table align-middle">
+                    <thead class="table-light">
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Roll No.</th>
+                        <th scope="col">Role/Responsibility</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Hardik Khandelwal</td>
+                        <td>IPM05151</td>
+                        <td>Lead developer, information architecture, UI consistency, accessibility</td>
+                      </tr>
+                      <tr>
+                        <td>Hardik Khandelwal</td>
+                        <td>IPM05151</td>
+                        <td>Content curation & proofreading</td>
+                      </tr>
+                      <tr>
+                        <td>Hardik Khandelwal</td>
+                        <td>IPM05151</td>
+                        <td>QA: cross‑browser testing, responsive checks</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="small text-muted mb-0">Note: Roles reflect core contributions; site is coded by hand without generators.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Philosophy -->
+          <div class="col-lg-5">
+            <div class="card card-ayu shadow-sm h-100">
+              <div class="card-body">
+                <h2 class="h4 mb-3"><i class="fa-solid fa-compass-drafting me-2" aria-hidden="true"></i>Design Philosophy</h2>
+                <ul class="mb-3">
+                  <li><strong>Safety-first content:</strong> Educational, no medical claims; disclaimers on every page.</li>
+                  <li><strong>Plain language:</strong> Short, scannable sections; consistent headings and icons.</li>
+                  <li><strong>Accessibility:</strong> Skip links, labeled controls, sufficient color contrast, keyboard-friendly UI.</li>
+                  <li><strong>Performance:</strong> Minimal JS, CDN Bootstrap, deferred scripts, optimized assets.</li>
+                  <li><strong>Soft personalization:</strong> LocalStorage (no login) to reorder tips/products by dosha.</li>
+                  <li><strong>Consistent theming:</strong> Shared `theme.css` variables for colors/spacing/rounded corners.</li>
+                </ul>
+                <p class="small text-muted mb-0">Tech stack: HTML, CSS (Bootstrap + custom), light JS. No backend required.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial & Placement -->
+        <div class="row g-4 mt-1">
+          <div class="col-lg-7">
+            <div class="card card-ayu shadow-sm h-100">
+              <div class="card-body">
+                <h2 class="h4 mb-3"><i class="fa-solid fa-quote-left me-2" aria-hidden="true"></i>Sample Testimonial</h2>
+                <figure class="mb-0">
+                  <span class="quote-mark d-inline-block mb-2">“</span>
+                  <blockquote class="blockquote">
+                    <p class="mb-1">
+                      This site helped me understand Ayurvedic basics without getting overwhelmed. The lifestyle page was super practical.
+                    </p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer mb-0">
+                    A. Sharma, sample user
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card card-ayu shadow-sm h-100">
+              <div class="card-body">
+                <h2 class="h5 mb-2"><i class="fa-solid fa-location-dot me-2" aria-hidden="true"></i>Public Placement (if used)</h2>
+                <p class="mb-2">If we were to add testimonials publicly, we’d place them:</p>
+                <ul class="mb-2">
+                  <li>As a small carousel under the hero on <strong>Home</strong>.</li>
+                  <li>As a single highlighted quote at the end of <strong>Lifestyle</strong>.</li>
+                </ul>
+                <p class="small text-muted mb-0">We would not collect or display real user data without consent.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submission notes -->
+        <div class="row g-4 mt-1">
+          <div class="col-12">
+            <div class="alert alert-warning mb-0" role="alert">
+              <i class="fa-solid fa-triangle-exclamation me-2" aria-hidden="true"></i>
+              For evaluation only. Please keep this URL confidential. Page carries <strong>noindex</strong> and is not linked anywhere.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto py-4 border-top">
+    <div class="container small">
+      <div class="row gy-2 align-items-center">
+        <div class="col-md-6">
+          <span class="text-muted">For educational purposes only — not medical advice.</span>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1" aria-hidden="true"></i>FAQs</a>
+          <a href="about.html"><i class="fa-solid fa-envelope me-1" aria-hidden="true"></i>Contact</a>
+        </div>
+      </div>
+      <div class="text-center text-muted mt-2">© 2025 Know Your Dosha</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Soft gate: require token in URL (e.g., ?t=IIMR2025) -->
+  <script>
+    (function () {
+      const url = new URL(window.location.href);
+      const token = url.searchParams.get('t');
+      const REQUIRED = 'IIMR2025'; // change if you want
+
+      // unlock only with correct token
+      if (token === REQUIRED) {
+        document.body.setAttribute('data-locked', '0');
+      } else {
+        document.body.setAttribute('data-locked', '1');
+      }
+
+      // OPTIONAL: warn if page is opened from an <a target="_blank"> without token
+      // (No alerts shown to normal users anywhere else)
+    })();
+  </script>
+</body>
+</html>

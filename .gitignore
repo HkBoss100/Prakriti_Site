@@ -1,0 +1,12 @@
+# Frontend
+node_modules/
+dist/
+build/
+
+# Backend (nested)
+dosha-backend/node_modules/
+dosha-backend/.keystone/
+dosha-backend/keystone.db
+dosha-backend/.env
+dosha-backend/.cache/
+dosha-backend/coverage/

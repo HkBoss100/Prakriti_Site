@@ -1,72 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Product Suggestions (Optional)</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Optional, Safe Over-the-Counter Ideas | Know Your Dosha</title>
+  <meta name="description" content="Gentle, optional OTC ideas like herbal teas and external oils. Educational only—always read labels and consult a professional if needed." />
+  <link rel="canonical" href="https://example.com/products.html" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Optional, Safe Over-the-Counter Ideas" />
+  <meta property="og:description" content="Gentle, optional OTC ideas like herbal teas and external oils. Educational only." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/products.html" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Icons / CSS -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ3Y..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
 </head>
 <body>
-  <header class="site-header">
-  <div class="container header-inner">
-    <a class="logo" href="index.html">Know Your Dosha</a>
-    <nav aria-label="Primary">
-      <ul class="nav">
-        <li><a href="index.html"><i class="fas fa-sun"></i> Home</a></li>
-        <li><a href="about-ayurveda.html"><i class="fas fa-mortar-pestle"></i> About Ayurveda</a></li>
-        <li><a href="test.html"><i class="fas fa-scroll"></i> Take the Assessment</a></li>
-        <li><a href="lifestyle.html"><i class="fas fa-seedling"></i> Lifestyle</a></li>
-        <li><a href="products.html"><i class="fas fa-leaf"></i> Products</a></li>
-        <li><a href="faq.html"><i class="fas fa-om"></i> FAQs</a></li>
-        <li><a href="about.html"><i class="fas fa-user-ninja"></i> About</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-  <main class="container">
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Know Your Dosha</a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="index.html"><i class="fas fa-sun" aria-hidden="true"></i> <span class="sr-only">Home</span><span aria-hidden="true">Home</span></a></li>
+          <li><a href="about-ayurveda.html"><i class="fas fa-mortar-pestle" aria-hidden="true"></i> About Ayurveda</a></li>
+          <li><a href="test.html"><i class="fas fa-scroll" aria-hidden="true"></i> Take the Assessment</a></li>
+          <li><a href="lifestyle.html"><i class="fas fa-seedling" aria-hidden="true"></i> Lifestyle</a></li>
+          <li><a href="products.html" aria-current="page"><i class="fas fa-leaf" aria-hidden="true"></i> Products</a></li>
+          <li><a href="faq.html"><i class="fas fa-om" aria-hidden="true"></i> FAQs</a></li>
+          <li><a href="about.html"><i class="fas fa-user-ninja" aria-hidden="true"></i> About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container" role="main">
     <h1>Optional, Safe Over-the-Counter Ideas</h1>
-    <p class="muted">Always read labels. Avoid if you’re allergic/pregnant/nursing unless cleared by a professional.</p>
-    <div class="card-grid">
-      <article class="card">
+
+    <p id="otc-note" class="muted" role="note">
+      Educational only—<strong>not</strong> medical advice. Always read labels. Avoid during pregnancy/nursing or if allergic. If unsure, consult a qualified professional.
+    </p>
+
+    <div id="personalization-announcer" class="sr-only" aria-live="polite"></div>
+
+    <div class="card-grid" id="product-list" data-list="otc">
+      <!-- Each card carries data-doshas to support soft personalization -->
+      <article class="card" data-doshas="all vata kapha" data-name="Triphala Powder">
         <h3>Triphala Powder</h3>
         <p>Traditional mix (amalaki, haritaki, bibhitaki). Commonly used for gentle bowel regularity.</p>
-        <a class="btn" href="#" target="_blank" rel="noopener">Learn/Buy</a>
+        <div class="tags"><span class="chip">All</span></div>
+        <a class="btn" href="#" target="_blank" rel="noopener nofollow" data-event="outbound" data-item="Triphala">Learn/Buy</a>
       </article>
-      <article class="card">
+
+      <article class="card" data-doshas="pitta kapha all" data-name="CCF Tea">
         <h3>CCF Tea</h3>
-        <p>Cumin-Coriander-Fennel tea, often sipped warm after meals for light digestive comfort.</p>
-        <a class="btn" href="#" target="_blank" rel="noopener">Learn/Buy</a>
+        <p>Cumin–Coriander–Fennel tea, often sipped warm after meals for light digestive comfort.</p>
+        <div class="tags"><span class="chip">Pitta</span><span class="chip">Kapha</span></div>
+        <a class="btn" href="#" target="_blank" rel="noopener nofollow" data-event="outbound" data-item="CCF Tea">Learn/Buy</a>
       </article>
-      <article class="card">
+
+      <article class="card" data-doshas="all" data-name="Tulsi (Holy Basil) Tea">
         <h3>Tulsi (Holy Basil) Tea</h3>
-        <p>A mild herbal infusion many enjoy for a soothing daily beverage.</p>
-        <a class="btn" href="#" target="_blank" rel="noopener">Learn/Buy</a>
+        <p>A mild herbal infusion many enjoy as a soothing daily beverage.</p>
+        <div class="tags"><span class="chip">All</span></div>
+        <a class="btn" href="#" target="_blank" rel="noopener nofollow" data-event="outbound" data-item="Tulsi Tea">Learn/Buy</a>
       </article>
-      <article class="card">
+
+      <article class="card" data-doshas="vata kapha all" data-name="Ginger Tea">
         <h3>Ginger Tea</h3>
-        <p>Common kitchen tea; many find it warming before or after meals.</p>
-        <a class="btn" href="#" target="_blank" rel="noopener">Learn/Buy</a>
+        <p>Common kitchen tea; many find it gently warming before or after meals.</p>
+        <div class="tags"><span class="chip">Vata</span><span class="chip">Kapha</span></div>
+        <a class="btn" href="#" target="_blank" rel="noopener nofollow" data-event="outbound" data-item="Ginger Tea">Learn/Buy</a>
       </article>
-      <article class="card">
+
+      <article class="card" data-doshas="vata all" data-name="Sesame Oil (External)">
         <h3>Sesame Oil (External)</h3>
         <p>Used traditionally for light self-massage (<em>abhyanga</em>) before a warm shower.</p>
-        <a class="btn" href="#" target="_blank" rel="noopener">Learn/Buy</a>
+        <p class="tiny muted">External use only. Patch-test first.</p>
+        <div class="tags"><span class="chip">Vata</span></div>
+        <a class="btn" href="#" target="_blank" rel="noopener nofollow" data-event="outbound" data-item="Sesame Oil">Learn/Buy</a>
       </article>
-      <article class="card">
+
+      <article class="card" data-doshas="pitta all" data-name="Rose Water (Culinary)">
         <h3>Rose Water (Culinary)</h3>
         <p>Used sparingly in desserts or drinks; often perceived as cooling.</p>
-        <a class="btn" href="#" target="_blank" rel="noopener">Learn/Buy</a>
+        <div class="tags"><span class="chip">Pitta</span></div>
+        <a class="btn" href="#" target="_blank" rel="noopener nofollow" data-event="outbound" data-item="Rose Water">Learn/Buy</a>
       </article>
     </div>
-    <p class="note">Links above are placeholders—swap them for your preferred reputable sources.</p>
+
+    <p class="note">Links are placeholders—replace with reputable sources you trust.</p>
   </main>
+
   <footer class="site-footer">
-  <div class="container">
-    <p>Educational use only. Not medical advice. © 2025 Know Your Dosha</p>
-  </div>
-</footer>
-  <script src="assets/js/script.js"></script>
+    <div class="container">
+      <p>Educational use only. Not medical advice. © 2025 Know Your Dosha</p>
+    </div>
+  </footer>
+
+  <!-- Structured Data: non-committal ItemList for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Optional OTC Ideas",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"Triphala Powder","url":"https://example.com/products.html#triphala"}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"CCF Tea","url":"https://example.com/products.html#ccf-tea"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"Tulsi (Holy Basil) Tea","url":"https://example.com/products.html#tulsi-tea"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"Ginger Tea","url":"https://example.com/products.html#ginger-tea"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"Product","name":"Sesame Oil (External)","url":"https://example.com/products.html#sesame-oil"}},
+      {"@type":"ListItem","position":6,"item":{"@type":"Product","name":"Rose Water (Culinary)","url":"https://example.com/products.html#rose-water"}}
+    ]
+  }
+  </script>
+
+  <noscript><div class="container tiny muted">Personalization is limited without JavaScript.</div></noscript>
+
+  <script src="assets/js/script.js" defer></script>
+  <script defer>
+    // Soft personalization by stored dosha (from your test page)
+    (function () {
+      const d = (localStorage.getItem('dosha') || '').toLowerCase();
+      const list = document.getElementById('product-list');
+      if (!d || !list) return;
+
+      const cards = Array.from(list.querySelectorAll('.card'));
+      // Bring dosha-relevant cards to top (stable sort)
+      cards.sort((a, b) => {
+        const aHas = a.dataset.doshas?.includes(d) ? 1 : 0;
+        const bHas = b.dataset.doshas?.includes(d) ? 1 : 0;
+        return bHas - aHas;
+      }).forEach((el, i) => list.appendChild(el));
+
+      // Annotate top matches
+      cards.forEach(card => {
+        if (card.dataset.doshas?.includes(d)) {
+          const badge = document.createElement('span');
+          badge.className = 'badge';
+          badge.textContent = 'Suggested for your dosha';
+          card.querySelector('h3').after(badge);
+        }
+      });
+
+      const announcer = document.getElementById('personalization-announcer');
+      if (announcer) announcer.textContent = `Products reordered for ${d} preferences.`;
+    })();
+
+    // Lightweight outbound click tracking hook (dataLayer-friendly)
+    (function () {
+      const links = document.querySelectorAll('a[data-event="outbound"]');
+      links.forEach(a => a.addEventListener('click', () => {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'outbound_click',
+          item: a.dataset.item || a.textContent.trim(),
+          page: 'products'
+        });
+      }));
+    })();
+  </script>
 </body>
 </html>

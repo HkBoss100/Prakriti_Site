@@ -1,36 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Dosha Result</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Dosha Result | Know Your Dosha</title>
+  <meta name="description" content="See your dosha result and next steps. Educational only—no medical advice." />
+  <link rel="canonical" href="https://example.com/result.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Your Dosha Result" />
+  <meta property="og:description" content="See your dosha result and safe, educational next steps." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/result.html" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Icons / CSS -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ3YVvM8rAbU..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <style>
+    /* Page-specific light styles (move to your CSS bundle if you prefer) */
+    .result-wrap { display:grid; gap:1.25rem; }
+    .result-card { border:1px solid var(--border, #e6e6e6); border-radius:16px; padding:1.25rem; background:#fff; box-shadow:var(--elev-1, 0 1px 2px rgba(0,0,0,.06)); }
+    .result-title { display:flex; align-items:center; gap:.6rem; margin:0 0 .25rem; font-size:clamp(1.35rem, 1.2rem + 1vw, 1.9rem); }
+    .dosha-badge { font-size:.85rem; border:1px solid currentColor; border-radius:999px; padding:.15rem .6rem; }
+    .muted { color:var(--muted, #666); }
+    .result-grid { display:grid; gap:1rem; grid-template-columns: 1fr; }
+    @media (min-width: 800px){ .result-grid { grid-template-columns: 2fr 1fr; } }
+    .meters { display:grid; gap:.5rem; }
+    .meter { background:#f3f3f3; border-radius:8px; overflow:hidden; }
+    .meter > div { height:10px; width:0; background:var(--accent, #222); transition:width .6s ease; }
+    .meter-label { display:flex; justify-content:space-between; font-size:.9rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:.6rem; }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; padding:.6rem .9rem; border-radius:10px; border:1px solid var(--border, #e6e6e6); }
+    .btn-primary { background:var(--accent, #111); color:#fff; border-color:var(--accent, #111); }
+    .btn-secondary { background:#fff; }
+    .btn-ghost { background:transparent; }
+    .note { font-size:.9rem; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  </style>
 </head>
 <body>
+  <a class="sr-only" href="#main">Skip to main content</a>
+
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">Know Your Dosha</a>
       <nav aria-label="Primary">
         <ul class="nav">
-          <li><a href="index.html"><i class="fas fa-sun"></i> Home</a></li>
-          <li><a href="about-ayurveda.html"><i class="fas fa-mortar-pestle"></i> About Ayurveda</a></li>
-          <li><a href="test.html"><i class="fas fa-scroll"></i> Take the Assessment</a></li>
-          <li><a href="lifestyle.html"><i class="fas fa-seedling"></i> Lifestyle</a></li>
-          <li><a href="products.html"><i class="fas fa-leaf"></i> Products</a></li>
-          <li><a href="faq.html"><i class="fas fa-om"></i> FAQs</a></li>
-          <li><a href="about.html"><i class="fas fa-user-ninja"></i> About</a></li>
+          <li><a href="index.html"><i class="fas fa-sun" aria-hidden="true"></i> Home</a></li>
+          <li><a href="about-ayurveda.html"><i class="fas fa-mortar-pestle" aria-hidden="true"></i> About Ayurveda</a></li>
+          <li><a href="test.html"><i class="fas fa-scroll" aria-hidden="true"></i> Take the Assessment</a></li>
+          <li><a href="lifestyle.html"><i class="fas fa-seedling" aria-hidden="true"></i> Lifestyle</a></li>
+          <li><a href="products.html"><i class="fas fa-leaf" aria-hidden="true"></i> Products</a></li>
+          <li><a href="faq.html"><i class="fas fa-om" aria-hidden="true"></i> FAQs</a></li>
+          <li><a href="about.html"><i class="fas fa-user-ninja" aria-hidden="true"></i> About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main id="main" class="container">
     <h1>Your Dosha Result</h1>
-    <p id="result" class="result-text"></p>
-    <div class="actions">
-      <a class="btn btn-primary" href="lifestyle.html">See Recommended Lifestyle</a>
-      <a class="btn btn-secondary" href="test.html">Retake Quiz</a>
+
+    <div class="result-wrap">
+      <section class="result-card" aria-live="polite" aria-atomic="true">
+        <h2 id="result-title" class="result-title">
+          <span id="dosha-emoji" aria-hidden="true">✨</span>
+          <span id="dosha-text">Loading…</span>
+          <span id="dosha-badge" class="dosha-badge muted"></span>
+        </h2>
+        <p id="result-sub" class="muted">Based on your responses in the assessment.</p>
+
+        <div class="result-grid">
+          <div>
+            <div id="meters-wrap" hidden>
+              <h3 class="tiny-title">Your mix (if available)</h3>
+              <div class="meters">
+                <div>
+                  <div class="meter-label"><span>Vata</span><span id="vata-val">0%</span></div>
+                  <div class="meter"><div id="vata-bar" style="--accent:#6b5b95"></div></div>
+                </div>
+                <div>
+                  <div class="meter-label"><span>Pitta</span><span id="pitta-val">0%</span></div>
+                  <div class="meter"><div id="pitta-bar" style="--accent:#c94c4c"></div></div>
+                </div>
+                <div>
+                  <div class="meter-label"><span>Kapha</span><span id="kapha-val">0%</span></div>
+                  <div class="meter"><div id="kapha-bar" style="--accent:#2e8b57"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="actions" style="margin-top:1rem;">
+              <a id="go-lifestyle" class="btn btn-primary" href="lifestyle.html"><i class="fas fa-seedling" aria-hidden="true"></i> See Recommended Lifestyle</a>
+              <a id="go-products" class="btn btn-secondary" href="products.html"><i class="fas fa-leaf" aria-hidden="true"></i> Optional Products</a>
+              <a class="btn btn-secondary" href="test.html"><i class="fas fa-rotate-right" aria-hidden="true"></i> Retake Quiz</a>
+            </div>
+          </div>
+
+          <aside class="result-card">
+            <h3 style="margin-top:0;">What’s next?</h3>
+            <ul>
+              <li>Explore lifestyle tips tailored to your result.</li>
+              <li>Browse gentle, optional over-the-counter ideas (educational only).</li>
+              <li>Retake or tweak answers if you think you mis-clicked.</li>
+            </ul>
+            <div class="actions">
+              <button id="share-btn" class="btn btn-ghost" type="button"><i class="fas fa-share-alt" aria-hidden="true"></i> Share</button>
+              <button id="print-btn" class="btn btn-ghost" type="button"><i class="fas fa-print" aria-hidden="true"></i> Print</button>
+              <button id="reset-btn" class="btn btn-ghost" type="button"><i class="fas fa-trash" aria-hidden="true"></i> Reset</button>
+            </div>
+            <p id="announce" class="sr-only" aria-live="polite"></p>
+            <p class="note muted" style="margin-top:.75rem;">Educational use only—<strong>not</strong> medical advice.</p>
+          </aside>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -40,12 +129,120 @@
     </div>
   </footer>
 
+  <!-- Structured data: breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://example.com/index.html"},
+      {"@type":"ListItem","position":2,"name":"Assessment","item":"https://example.com/test.html"},
+      {"@type":"ListItem","position":3,"name":"Result","item":"https://example.com/result.html"}
+    ]
+  }
+  </script>
+
   <script>
-    const out = document.getElementById('result');
-    if (out) {
-      const d = localStorage.getItem('dosha') || 'unknown';
-      out.textContent = `Your dominant dosha is ${d[0].toUpperCase() + d.slice(1)}.`;
-    }
+    (function () {
+      const out = document.getElementById('dosha-text');
+      const badge = document.getElementById('dosha-badge');
+      const emoji = document.getElementById('dosha-emoji');
+      const sub = document.getElementById('result-sub');
+      const announcer = document.getElementById('announce');
+
+      const goLifestyle = document.getElementById('go-lifestyle');
+      const goProducts  = document.getElementById('go-products');
+
+      const metersWrap = document.getElementById('meters-wrap');
+      const vBar = document.getElementById('vata-bar');
+      const pBar = document.getElementById('pitta-bar');
+      const kBar = document.getElementById('kapha-bar');
+      const vVal = document.getElementById('vata-val');
+      const pVal = document.getElementById('pitta-val');
+      const kVal = document.getElementById('kapha-val');
+
+      const raw = (localStorage.getItem('dosha') || '').toLowerCase().trim();
+      const dosha = ['vata','pitta','kapha'].includes(raw) ? raw : '';
+
+      const EMOJI = { vata:'💨', pitta:'🔥', kapha:'🌱', '':'✨' };
+      const TITLE = { vata:'Vata', pitta:'Pitta', kapha:'Kapha', '':'Unknown' };
+
+      // Title text
+      if (dosha) {
+        out.textContent = `Your dominant dosha is ${TITLE[dosha]}.`;
+        emoji.textContent = EMOJI[dosha];
+        badge.textContent = 'Based on your assessment';
+        badge.classList.remove('muted');
+      } else {
+        out.textContent = 'Result unavailable.';
+        emoji.textContent = EMOJI[''];
+        badge.textContent = 'Please take the assessment';
+        sub.textContent = 'We could not find a saved result.';
+        // Point primary CTA to quiz if unknown
+        goLifestyle.setAttribute('href','test.html');
+        goLifestyle.innerHTML = '<i class="fas fa-scroll" aria-hidden="true"></i> Take the Assessment';
+      }
+
+      // Optional score bars (if you later store: localStorage.doshaScores = JSON.stringify({vata: X, pitta: Y, kapha: Z}))
+      try {
+        const scores = JSON.parse(localStorage.getItem('doshaScores') || 'null');
+        if (scores && typeof scores === 'object') {
+          const v = Number(scores.vata || 0), p = Number(scores.pitta || 0), k = Number(scores.kapha || 0);
+          const total = v + p + k;
+          if (total > 0) {
+            const pv = Math.round((v / total) * 100);
+            const pp = Math.round((p / total) * 100);
+            const pk = Math.round((k / total) * 100);
+            vBar.style.width = pv + '%'; pBar.style.width = pp + '%'; kBar.style.width = pk + '%';
+            vVal.textContent = pv + '%'; pVal.textContent = pp + '%'; kVal.textContent = pk + '%';
+            metersWrap.hidden = false;
+
+            // Tie hint (soft copy)
+            const arr = [{k:'vata',v:pv},{k:'pitta',v:pp},{k:'kapha',v:pk}].sort((a,b)=>b.v-a.v);
+            if (arr[0].v === arr[1].v) {
+              sub.textContent = 'Looks like a near-tie—check lifestyle tips for both.';
+            }
+          }
+        }
+      } catch(e){ /* ignore */ }
+
+      // Deep link CTAs with dosha param for gentle personalization on next pages (they can ignore if not used)
+      if (dosha) {
+        goLifestyle.href = `lifestyle.html?d=${encodeURIComponent(dosha)}`;
+        goProducts.href = `products.html?d=${encodeURIComponent(dosha)}`;
+      }
+
+      // Share / Print / Reset helpers
+      const shareBtn = document.getElementById('share-btn');
+      const printBtn = document.getElementById('print-btn');
+      const resetBtn = document.getElementById('reset-btn');
+
+      shareBtn?.addEventListener('click', async () => {
+        const text = dosha ? `My dominant dosha is ${TITLE[dosha]} on Know Your Dosha.` : 'Check your dosha on Know Your Dosha.';
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: 'Know Your Dosha', text, url: location.href });
+            announcer.textContent = 'Shared.';
+          } catch { /* user canceled */ }
+        } else {
+          try {
+            await navigator.clipboard.writeText(`${text} ${location.href}`);
+            announcer.textContent = 'Link copied to clipboard.';
+          } catch {
+            announcer.textContent = 'Copy not available on this device.';
+          }
+        }
+      });
+
+      printBtn?.addEventListener('click', () => window.print());
+
+      resetBtn?.addEventListener('click', () => {
+        localStorage.removeItem('dosha');
+        localStorage.removeItem('doshaScores');
+        announcer.textContent = 'Saved result cleared.';
+        setTimeout(()=>location.reload(), 250);
+      });
+    })();
   </script>
 </body>
 </html>

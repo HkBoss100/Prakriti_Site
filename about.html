@@ -1,42 +1,276 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About & Contact</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About & Contact • Know Your Dosha</title>
+  <meta name="description" content="Student project that simplifies basic Ayurvedic concepts for learning. Educational only—no medical advice. Contact Hardik Khandelwal (IPM05151)." />
+  <link rel="canonical" href="https://example.com/about.html" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Font Awesome (icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About & Contact • Know Your Dosha" />
+  <meta property="og:description" content="A student project to learn Ayurvedic basics. Educational only—no medical advice." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/about.html" />
+  <meta name="twitter:card" content="summary" />
+
+  <style>
+    .nav-link i { margin-right:.4rem; }
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;}
+    .card h2 i, .card h3 i { opacity:.9; }
+    .form-note { font-size:.875rem; }
+  </style>
 </head>
-<body>
-  <header class="site-header">
-  <div class="container header-inner">
-    <a class="logo" href="index.html">Know Your Dosha</a>
-    <nav aria-label="Primary">
-      <ul class="nav">
-        <li><a href="index.html"><i class="fas fa-sun"></i> Home</a></li>
-        <li><a href="about-ayurveda.html"><i class="fas fa-mortar-pestle"></i> About Ayurveda</a></li>
-        <li><a href="test.html"><i class="fas fa-scroll"></i> Take the Assessment</a></li>
-        <li><a href="lifestyle.html"><i class="fas fa-seedling"></i> Lifestyle</a></li>
-        <li><a href="products.html"><i class="fas fa-leaf"></i> Products</a></li>
-        <li><a href="faq.html"><i class="fas fa-om"></i> FAQs</a></li>
-        <li><a href="about.html"><i class="fas fa-user-ninja"></i> About</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-  <main class="container prose">
-    <h1>About this Project</h1>
-    <p><strong>Submitted By:</strong> Hardik Khandelwal (Roll No: IPM05151)</p>
-    <p><strong>Course:</strong> HTML Web Development Project</p>
-    <p>This is a student project that brings basic Ayurvedic concepts into a simple, accessible website. It aims to teach and encourage reflective, safe self-care—not to diagnose or treat disease.</p>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:ipm05hardikkh@iimrohtak.ac.in">ipm05hardikkh@iimrohtak.ac.in</a> </p>
+<body class="d-flex flex-column min-vh-100">
+  <!-- Skip link -->
+  <a class="skip-link btn btn-sm btn-outline-secondary ms-2 mt-2" href="#main">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Primary">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="index.html">
+        <i class="fa-solid fa-sun me-2" aria-hidden="true"></i>Know Your Dosha
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun" aria-hidden="true"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle" aria-hidden="true"></i>About Ayurveda</a></li>
+          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll" aria-hidden="true"></i>Take the Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling" aria-hidden="true"></i>Lifestyle</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf" aria-hidden="true"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om" aria-hidden="true"></i>FAQs</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html"><i class="fa-solid fa-user-ninja" aria-hidden="true"></i>About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main id="main" class="flex-grow-1">
+    <!-- Header band -->
+    <header class="py-5 bg-light border-bottom">
+      <div class="container">
+        <h1 class="display-6 mb-1">About & Contact</h1>
+        <p class="text-muted mb-0">A student project to make Ayurvedic concepts simple and accessible.</p>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- About card -->
+          <div class="col-lg-7">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h2 class="h4 mb-3"><i class="fa-solid fa-scroll me-2" aria-hidden="true"></i>About this Project</h2>
+                <p class="mb-2"><strong>Submitted By:</strong> Hardik Khandelwal <span class="text-muted">(Roll No: IPM05151)</span></p>
+                <p class="mb-4"><strong>Course:</strong> HTML Web Development Project</p>
+                <p>
+                  This is a student project that introduces basic Ayurvedic ideas through a simple, responsive website.
+                  It is purely educational—to promote reflection and safe self-care—not to diagnose, treat, or replace professional advice.
+                </p>
+                <div class="alert alert-warning small mt-3 mb-0" role="alert">
+                  <i class="fa-solid fa-triangle-exclamation me-2" aria-hidden="true"></i>
+                  Educational use only. Do not rely on this site for medical decisions.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact card -->
+          <div class="col-lg-5">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h2 class="h4 mb-3"><i class="fa-solid fa-envelope me-2" aria-hidden="true"></i>Contact</h2>
+
+                <!-- Simple contact form (mailto-based; no backend needed) -->
+                <form id="contact-form" class="needs-validation" novalidate>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input id="name" name="name" type="text" class="form-control" autocomplete="name" required />
+                    <div class="invalid-feedback">Please enter your name.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" name="email" type="email" class="form-control" autocomplete="email" required />
+                    <div class="invalid-feedback">Enter a valid email address.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-control" rows="4" maxlength="1200" required></textarea>
+                    <div class="invalid-feedback">Please write a short message.</div>
+                  </div>
+
+                  <!-- Honeypot (basic spam deterrent) -->
+                  <div class="visually-hidden">
+                    <label for="company">Company</label>
+                    <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+                  </div>
+
+                  <div class="d-flex align-items-center gap-2">
+                    <button type="submit" class="btn btn-dark">
+                      <i class="fa-solid fa-paper-plane me-1" aria-hidden="true"></i>Send
+                    </button>
+                    <a class="btn btn-outline-secondary" href="mailto:ipm05hardikkh@iimrohtak.ac.in">
+                      <i class="fa-solid fa-at me-1" aria-hidden="true"></i>Email directly
+                    </a>
+                  </div>
+                  <p class="form-note text-muted mt-2 mb-0">
+                    By contacting, you agree not to include private health information. Messages are handled via your email provider.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /row -->
+
+        <!-- Credits / Attributions -->
+        <div class="row g-4 mt-1">
+          <div class="col-12">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h3 class="h5 mb-3"><i class="fa-solid fa-circle-info me-2" aria-hidden="true"></i>Credits & Notes</h3>
+                <ul class="mb-0">
+                  <li>Built with Bootstrap 5 and Font Awesome. Icons and styles are used under their respective licenses.</li>
+                  <li>No tracking cookies or analytics are required to view this page.</li>
+                  <li>Accessibility basics: skip link, semantic headings, proper labels, and visible focus states.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </main>
-  <footer class="site-footer">
-  <div class="container">
-    <p>Educational use only. Not medical advice. © 2025 Know Your Dosha</p>
-  </div>
-</footer>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto py-4 border-top">
+    <div class="container small">
+      <div class="row gy-2 align-items-center">
+        <div class="col-md-6">
+          <span class="text-muted">For educational purposes only — not medical advice.</span>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1" aria-hidden="true"></i>FAQs</a>
+          <a href="about.html"><i class="fa-solid fa-envelope me-1" aria-hidden="true"></i>Contact</a>
+        </div>
+      </div>
+      <div class="text-center text-muted mt-2">
+        © 2025 Know Your Dosha • <span id="last-updated">Last updated: —</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Know Your Dosha",
+        "url": "https://example.com/"
+      },
+      {
+        "@type": "ContactPage",
+        "url": "https://example.com/about.html",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer support",
+          "email": "ipm05hardikkh@iimrohtak.ac.in",
+          "availableLanguage": ["en"]
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Hardik Khandelwal",
+        "email": "mailto:ipm05hardikkh@iimrohtak.ac.in",
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "IIM Rohtak" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Page JS -->
+  <script>
+    // Bootstrap-style validation + mailto submit
+    (function () {
+      const form = document.getElementById('contact-form');
+      const last = document.getElementById('last-updated');
+      if (last) {
+        try { last.textContent = 'Last updated: ' + new Date(document.lastModified).toLocaleDateString(); }
+        catch(e){ /* ignore */ }
+      }
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Bootstrap validation UI
+        if (!form.checkValidity()) {
+          e.stopPropagation();
+          form.classList.add('was-validated');
+          return;
+        }
+
+        // Honeypot check
+        if (form.company && form.company.value.trim() !== '') {
+          return; // likely bot
+        }
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const msg = document.getElementById('message').value.trim();
+
+        const subject = encodeURIComponent('Know Your Dosha — Contact');
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
+        const to = 'ipm05hardikkh@iimrohtak.ac.in';
+
+        // Open default mail client
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      }, false);
+    })();
+  </script>
+
+  <!-- Your JS (optional) -->
   <script src="assets/js/script.js"></script>
 </body>
 </html>

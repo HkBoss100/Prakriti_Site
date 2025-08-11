@@ -1,0 +1,70 @@
+/* ====== Ayurvedic Theme (site-wide) ====== */
+:root{
+  /* Brand palette (single source of truth) */
+  --brand-cream: #fff7e6;      /* page background / sections */
+  --brand-amber: #b26a00;      /* primary (saffron/haldi) */
+  --brand-amber-600:#9c5d00;   /* hover/depth */
+  --brand-leaf:  #2e7d32;      /* secondary (leaf green) */
+  --brand-brown: #5c3d2e;      /* headings / accents */
+  --brand-ink:   #2b2b2b;      /* body text */
+
+  /* Map to Bootstrap tokens */
+  --bs-body-bg: var(--brand-cream);
+  --bs-body-color: var(--brand-ink);
+  --bs-primary: var(--brand-amber);
+  --bs-secondary: var(--brand-leaf);
+  --bs-link-color: var(--brand-amber);
+  --bs-link-hover-color: var(--brand-amber-600);
+}
+
+/* Hero & section treatments */
+.hero-ayu {
+  background:
+    radial-gradient(1200px 600px at 10% 0%, #fff1cc 0%, transparent 60%),
+    radial-gradient(800px 400px at 90% 10%, #fff3d6 0%, transparent 60%),
+    linear-gradient(180deg,#fff9ec 0%, #fff3d4 100%);
+  border-bottom: 1px solid rgba(178,106,0,.18);
+}
+
+.section-soft {
+  background: linear-gradient(180deg,#fffaf0 0%, #fff6e0 100%);
+  border-top: 1px solid rgba(178,106,0,.12);
+}
+
+/* Cards with gentle accents */
+.card-ayu {
+  border: 1px solid rgba(178,106,0,.18);
+  box-shadow: 0 8px 20px rgba(178,106,0,.06);
+}
+.card-ayu .card-title { color: var(--brand-brown); }
+
+/* Buttons */
+.btn-ayu {
+  background: var(--brand-amber);
+  color: #fff;
+  border: none;
+}
+.btn-ayu:hover, .btn-ayu:focus {
+  background: var(--brand-amber-600);
+  color:#fff;
+}
+.btn-ayu-outline{
+  border:1px solid var(--brand-amber);
+  color: var(--brand-amber);
+  background: transparent;
+}
+.btn-ayu-outline:hover{ background: var(--brand-amber); color:#fff; }
+
+/* Icons tone */
+.nav-link i, .card-title i { color: var(--brand-amber); }
+
+/* Badges for highlights */
+.badge-ayu {
+  background: rgba(178,106,0,.12);
+  color: var(--brand-amber);
+  border: 1px solid rgba(178,106,0,.25);
+}
+
+/* Accessibility helpers */
+.skip-link{position:absolute;left:-9999px}
+.skip-link:focus{position:static;margin:.5rem}

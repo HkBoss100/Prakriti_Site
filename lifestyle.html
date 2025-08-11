@@ -1,43 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lifestyle Recommendations</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lifestyle Recommendations • Know Your Dosha</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Font Awesome (icons on links) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Your CSS then Theme (theme last so it controls colors site-wide) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+
+  <style>
+    .nav-link i { margin-right:.4rem; }
+  </style>
 </head>
-<body>
-  <header class="site-header">
-  <div class="container header-inner">
-    <a class="logo" href="index.html">Know Your Dosha</a>
-    <nav aria-label="Primary">
-      <ul class="nav">
-        <li><a href="index.html"><i class="fas fa-sun"></i> Home</a></li>
-        <li><a href="about-ayurveda.html"><i class="fas fa-mortar-pestle"></i> About Ayurveda</a></li>
-        <li><a href="test.html"><i class="fas fa-scroll"></i> Take the Assessment</a></li>
-        <li><a href="lifestyle.html"><i class="fas fa-seedling"></i> Lifestyle</a></li>
-        <li><a href="products.html"><i class="fas fa-leaf"></i> Products</a></li>
-        <li><a href="faq.html"><i class="fas fa-om"></i> FAQs</a></li>
-        <li><a href="about.html"><i class="fas fa-user-ninja"></i> About</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-  <main class="container prose">
-    <h1>Personalized Lifestyle</h1>
-    <p id="which-mode"></p>
-    <section id="recommendations"></section>
-    <p class="note">These are general wellness suggestions. If you have any medical condition or take medications, consult a qualified practitioner.</p>
-    <div class="spacer"></div>
-    <a class="btn btn-secondary" href="products.html">Optional: Safe Products</a>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Skip link -->
+  <a class="skip-link btn btn-sm btn-outline-secondary ms-2 mt-2" href="#main">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Primary">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="index.html">
+        <i class="fa-solid fa-sun me-2"></i>Know Your Dosha
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle"></i>About Ayurveda</a></li>
+          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll"></i>Take the Assessment</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="lifestyle.html"><i class="fa-solid fa-seedling"></i>Lifestyle</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om"></i>FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja"></i>About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="py-5 hero-ayu border-bottom">
+    <div class="container">
+      <span class="badge rounded-pill badge-ayu mb-3">
+        <i class="fa-solid fa-seedling me-1"></i> Personalized Lifestyle
+      </span>
+      <h1 class="display-6 mb-1" style="color:var(--brand-brown);">Lifestyle Recommendations</h1>
+      <p id="which-mode" class="text-muted mb-0"><!-- Filled by script.js (Prakriti/Vikriti) --></p>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="main" class="flex-grow-1">
+    <!-- Deep-link anchors so lifestyle.html#vata etc. work -->
+    <div id="vata"></div><div id="pitta"></div><div id="kapha"></div>
+
+    <section class="py-5">
+      <div class="container">
+        <!-- Optional quick jumps -->
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <a class="btn btn-ayu-outline btn-sm" href="#vata"><i class="fa-solid fa-feather-pointed me-1"></i>Vata Tips</a>
+          <a class="btn btn-ayu-outline btn-sm" href="#pitta"><i class="fa-solid fa-fire-flame-simple me-1"></i>Pitta Tips</a>
+          <a class="btn btn-ayu-outline btn-sm" href="#kapha"><i class="fa-solid fa-mountain-sun me-1"></i>Kapha Tips</a>
+        </div>
+
+        <!-- Recommendations container (filled dynamically by JS) -->
+        <div class="row g-4" id="recommendations">
+          <!-- Your script will inject cards/lists here -->
+        </div>
+
+        <!-- Educational disclaimer -->
+        <div class="alert alert-warning mt-4" role="alert">
+          <i class="fa-solid fa-triangle-exclamation me-2"></i>
+          These are general wellness suggestions. If you have any medical condition or take medications, consult a qualified practitioner.
+        </div>
+
+        <!-- CTA to products -->
+        <div class="mt-3">
+          <a class="btn btn-ayu" href="products.html">
+            <i class="fa-solid fa-leaf me-2"></i>Optional: Safe Products
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soft band for tone consistency -->
+    <section class="py-4 section-soft border-top">
+      <div class="container small text-muted">
+        Notice what feels balancing. Small, steady changes tend to work best.
+      </div>
+    </section>
   </main>
-  <footer class="site-footer">
-  <div class="container">
-    <p>Educational use only. Not medical advice. © 2025 Know Your Dosha</p>
-  </div>
-</footer>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto py-4 border-top">
+    <div class="container small">
+      <div class="row gy-2 align-items-center">
+        <div class="col-md-6">
+          <span class="text-muted">For educational purposes only — not medical advice.</span>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1"></i>FAQs</a>
+          <a href="about.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a>
+        </div>
+      </div>
+      <div class="text-center text-muted mt-2">© 2025 Know Your Dosha</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Your dynamic logic -->
   <script src="assets/js/script.js"></script>
 </body>
 </html>

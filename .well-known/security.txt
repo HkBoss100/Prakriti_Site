@@ -1,0 +1,5 @@
+Contact: mailto:ipm05hardikkh@iimrohtak.ac.in
+Contact: https://www.linkedin.com/in/hardik-khandelwal-boss/
+Policy: https://hkboss100.github.io/Prakriti_Site/about.html
+Expires: 2026-12-31T23:59:59Z
+Preferred-Languages: en

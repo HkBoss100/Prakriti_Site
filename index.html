@@ -10,12 +10,14 @@
   <!-- Icons -->
   <link rel="icon" href="favicon.ico" />
 
-  <!-- Preconnects -->
+  <!-- Preconnects for performance -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
-  <!-- Preload hero (desktop only so phones don't fetch the big one early) -->
-  <link rel="preload" as="image" href="assets/img/hero-ayu.webp" media="(min-width: 577px)" imagesizes="(min-width: 992px) 480px, 80vw" />
+  <!-- Preload hero image (adjust path if different) -->
+  <link rel="preload" as="image"
+        href="assets/img/hero-ayu.webp"
+        imagesizes="(min-width: 992px) 480px, 80vw" />
 
   <!-- Bootstrap CSS -->
   <link
@@ -25,12 +27,14 @@
     crossorigin="anonymous"
   />
 
-  <!-- Font Awesome (async to improve FCP/LCP) -->
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin referrerpolicy="no-referrer">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin referrerpolicy="no-referrer"></noscript>
+  <!-- Font Awesome (icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
 
-  <!-- Site CSS then Theme -->
+  <!-- Site CSS then Theme (theme last to control colors) -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/theme.css" />
 
@@ -51,10 +55,6 @@
     }
     .btn-ayu-outline:hover, .btn-outline-secondary:hover, .btn-secondary:hover {
       background:#f7f7f7; color:var(--text, #111) !important; border-color:var(--border, #d6d6d6);
-    }
-    /* Make hero image smaller on phones (visual only; no new files required) */
-    @media (max-width: 576px){
-      .hero-ayu .hero-img { max-width: 260px; width:100%; height:auto; }
     }
   </style>
 </head>
@@ -120,7 +120,7 @@
           <picture>
             <source srcset="assets/img/hero-ayu.webp" type="image/webp" />
             <source srcset="assets/img/hero-ayu.png" type="image/png" />
-            <img class="hero-img img-fluid rounded-3 border"
+            <img class="img-fluid rounded-3 border"
                  src="assets/img/hero-ayu.png"
                  alt="Illustration of an Ayurvedic sage reading a palm-leaf manuscript at sunrise"
                  width="480" height="420" decoding="async" fetchpriority="high" />
@@ -133,7 +133,7 @@
   <!-- MAIN -->
   <main id="main" class="flex-grow-1">
 
-    <!-- HOW IT WORKS -->
+    <!-- HOW IT WORKS (adds scroll depth, images per block) -->
     <section class="py-5">
       <div class="container">
         <h2 class="h3 mb-4" style="color:var(--brand-brown);">How it works</h2>
@@ -172,7 +172,7 @@
       </div>
     </section>
 
-    <!-- DOSHAS -->
+    <!-- DOSHAS (each with image) -->
     <section class="py-5 section-soft border-top">
       <div class="container">
         <h2 class="h3 mb-4" style="color:var(--brand-brown);">Three Doshas</h2>
@@ -208,7 +208,7 @@
       </div>
     </section>
 
-    <!-- SOCIAL / SUBSCRIBE -->
+    <!-- SOCIAL / SUBSCRIBE (accessible form + share buttons) -->
     <section class="py-5 border-top">
       <div class="container">
         <div class="row g-4 align-items-center">
@@ -355,3 +355,4 @@
   </script>
 </body>
 </html>
+

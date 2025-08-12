@@ -4,9 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lifestyle Recommendations • Know Your Dosha</title>
+  <meta name="description" content="Gentle, mobile-friendly lifestyle tips for Vata, Pitta, and Kapha. Personalized highlights based on your saved dosha. Educational only." />
+  <link rel="canonical" href="https://example.com/lifestyle.html" />
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- Bootstrap CSS -->
   <link
@@ -16,31 +22,50 @@
     crossorigin="anonymous"
   />
 
-  <!-- Font Awesome (icons on links) -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     referrerpolicy="no-referrer"
   />
 
-  <!-- Your CSS then Theme (theme last so it controls colors site-wide) -->
+  <!-- Site CSS then Theme -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/theme.css" />
 
   <style>
-    .nav-link i { margin-right:.4rem; }
+    .nav-link i{margin-right:.4rem}
+    .badge-ayu{background:var(--brand-brown,#8a4b2d);color:#fff}
+    /* keep outline buttons readable on light background */
+    .btn-ayu{color:#fff !important}
+    .btn-ayu-outline,.btn-outline-secondary,.btn-secondary{
+      background:#fff;color:var(--text,#222) !important;border:1px solid var(--border,#e6e6e6)
+    }
+    .btn-ayu-outline:hover,.btn-outline-secondary:hover,.btn-secondary:hover{
+      background:#f7f7f7;color:var(--text,#111) !important;border-color:var(--border,#d6d6d6)
+    }
+    /* section labels */
+    .tip-chip{display:inline-block;border:1px solid var(--border,#e6e6e6);border-radius:999px;padding:.1rem .6rem;margin-right:.4rem}
+    .section-anchor{position:relative;top:-80px;visibility:hidden}
+    /* highlight when matched to saved dosha */
+    [data-match="1"]{box-shadow:0 0 0 3px rgba(138,75,45,.16)}
+    /* visually-hidden but focusable */
+    .visually-hidden-focusable:active,.visually-hidden-focusable:focus{
+      position:static !important;width:auto;height:auto;margin:0;overflow:visible;clip:auto;
+      white-space:normal;padding:.5rem 1rem;border:1px solid var(--border,#ddd);background:#fff
+    }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
   <!-- Skip link -->
-  <a class="skip-link btn btn-sm btn-outline-secondary ms-2 mt-2" href="#main">Skip to main content</a>
+  <a class="visually-hidden visually-hidden-focusable position-absolute m-2" href="#main">Skip to main content</a>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Primary">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="index.html">
-        <i class="fa-solid fa-sun me-2"></i>Know Your Dosha
+        <i class="fa-solid fa-sun me-2" aria-hidden="true"></i>Know Your Dosha
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -50,64 +75,251 @@
 
       <div id="mainNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun"></i>Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle"></i>About Ayurveda</a></li>
-          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll"></i>Take the Assessment</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="lifestyle.html"><i class="fa-solid fa-seedling"></i>Lifestyle</a></li>
-          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf"></i>Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om"></i>FAQs</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja"></i>About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun" aria-hidden="true"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle" aria-hidden="true"></i>About Ayurveda</a></li>
+          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll" aria-hidden="true"></i>Take the Assessment</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="lifestyle.html"><i class="fa-solid fa-seedling" aria-hidden="true"></i>Lifestyle</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf" aria-hidden="true"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om" aria-hidden="true"></i>FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja" aria-hidden="true"></i>About</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
+    <!-- PAGE HEADER (image on right) -->
   <header class="py-5 hero-ayu border-bottom">
     <div class="container">
-      <span class="badge rounded-pill badge-ayu mb-3">
-        <i class="fa-solid fa-seedling me-1"></i> Personalized Lifestyle
-      </span>
-      <h1 class="display-6 mb-1" style="color:var(--brand-brown);">Lifestyle Recommendations</h1>
-      <p id="which-mode" class="text-muted mb-0"><!-- Filled by script.js (Prakriti/Vikriti) --></p>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <span class="badge rounded-pill badge-ayu mb-3">
+            <i class="fa-solid fa-seedling me-1" aria-hidden="true"></i> Personalized Lifestyle
+          </span>
+          <h1 class="display-6 mb-1" style="color:var(--brand-brown);">Lifestyle Recommendations</h1>
+          <p id="which-mode" class="text-muted mb-0">
+            Tips below can be filtered and are softly personalized to your saved result.
+          </p>
+        </div>
+        <div class="col-lg-5 text-center">
+          <picture>
+            <source srcset="assets/img/tips.webp" type="image/webp" />
+            <img
+              src="assets/img/tips.webp"
+              class="img-fluid rounded-3 border"
+              alt="Lifestyle collage for routine, food, and movement"
+              width="520" height="360"
+              loading="eager" decoding="async" />
+          </picture>
+        </div>
+      </div>
     </div>
-  </header>
+</header>
+
+
 
   <!-- MAIN -->
   <main id="main" class="flex-grow-1">
-    <!-- Deep-link anchors so lifestyle.html#vata etc. work -->
-    <div id="vata"></div><div id="pitta"></div><div id="kapha"></div>
+    <span id="top" class="section-anchor" aria-hidden="true"></span>
 
-    <section class="py-5">
+    <!-- Filter / quick jumps -->
+    <section class="py-4 border-bottom">
       <div class="container">
-        <!-- Optional quick jumps -->
-        <div class="d-flex flex-wrap gap-2 mb-4">
-          <a class="btn btn-ayu-outline btn-sm" href="#vata"><i class="fa-solid fa-feather-pointed me-1"></i>Vata Tips</a>
-          <a class="btn btn-ayu-outline btn-sm" href="#pitta"><i class="fa-solid fa-fire-flame-simple me-1"></i>Pitta Tips</a>
-          <a class="btn btn-ayu-outline btn-sm" href="#kapha"><i class="fa-solid fa-mountain-sun me-1"></i>Kapha Tips</a>
-        </div>
-
-        <!-- Recommendations container (filled dynamically by JS) -->
-        <div class="row g-4" id="recommendations">
-          <!-- Your script will inject cards/lists here -->
-        </div>
-
-        <!-- Educational disclaimer -->
-        <div class="alert alert-warning mt-4" role="alert">
-          <i class="fa-solid fa-triangle-exclamation me-2"></i>
-          These are general wellness suggestions. If you have any medical condition or take medications, consult a qualified practitioner.
-        </div>
-
-        <!-- CTA to products -->
-        <div class="mt-3">
-          <a class="btn btn-ayu" href="products.html">
-            <i class="fa-solid fa-leaf me-2"></i>Optional: Safe Products
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          <span class="me-1 small text-muted">Filter:</span>
+          <button class="btn btn-ayu-outline btn-sm" data-filter="all" aria-pressed="true"><i class="fa-solid fa-layer-group me-1" aria-hidden="true"></i>All</button>
+          <button class="btn btn-ayu-outline btn-sm" data-filter="vata"><i class="fa-solid fa-feather-pointed me-1" aria-hidden="true"></i>Vata</button>
+          <button class="btn btn-ayu-outline btn-sm" data-filter="pitta"><i class="fa-solid fa-fire-flame-simple me-1" aria-hidden="true"></i>Pitta</button>
+          <button class="btn btn-ayu-outline btn-sm" data-filter="kapha"><i class="fa-solid fa-mountain-sun me-1" aria-hidden="true"></i>Kapha</button>
+          <a class="btn btn-outline-secondary btn-sm ms-auto" href="#top" id="back-to-top">
+            <i class="fa-solid fa-arrow-up me-1" aria-hidden="true"></i>Top
           </a>
         </div>
+        <p id="filter-announce" class="visually-hidden" aria-live="polite"></p>
       </div>
     </section>
 
-    <!-- Soft band for tone consistency -->
+    <!-- Sections for each dosha -->
+    <section class="py-5">
+      <div class="container">
+
+        <!-- VATA -->
+        <span id="vata" class="section-anchor" aria-hidden="true"></span>
+        <article class="card card-ayu mb-4" data-dosha="vata" tabindex="-1">
+          <div class="card-body">
+            <h2 class="h4 card-title"><i class="fa-solid fa-feather-pointed me-2" aria-hidden="true"></i>Vata — Ground & Warm</h2>
+            <p class="text-muted">Light, dry, cool, mobile. Aim for warmth, routine, nourishment.</p>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1"><span class="tip-chip">Routine</span></h3>
+                <ul class="mb-0">
+                  <li>Regular meals and bedtime; avoid skipping meals.</li>
+                  <li>Warm oil self-massage (<em>abhyanga</em>) before a shower.</li>
+                  <li>Keep a gentle, predictable daily rhythm.</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1"><span class="tip-chip">Food</span></h3>
+                <ul class="mb-0">
+                  <li>Favor warm, moist foods (khichdi, stews, soups).</li>
+                  <li>Healthy fats (ghee, sesame oil, avocado).</li>
+                  <li>Spices like ginger, cumin, ajwain in moderation.</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1 mt-3 mt-sm-0"><span class="tip-chip">Movement</span></h3>
+                <ul class="mb-0">
+                  <li>Slow yoga, walking, light strength work.</li>
+                  <li>Avoid overexertion; keep warm in wind/cold.</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1 mt-3 mt-sm-0"><span class="tip-chip">Mind</span></h3>
+                <ul class="mb-0">
+                  <li>Breathwork with long exhales; short meditations.</li>
+                  <li>Calming music, journaling, and pauses between tasks.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-3 d-flex gap-2">
+              <a class="btn btn-ayu-outline btn-sm" href="products.html?d=vata"><i class="fa-solid fa-leaf me-1" aria-hidden="true"></i>Suggested Products</a>
+              <button class="btn btn-outline-secondary btn-sm" data-copy="#vata"><i class="fa-solid fa-link me-1" aria-hidden="true"></i>Copy link</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PITTA -->
+        <span id="pitta" class="section-anchor" aria-hidden="true"></span>
+        <article class="card card-ayu mb-4" data-dosha="pitta" tabindex="-1">
+          <div class="card-body">
+            <h2 class="h4 card-title"><i class="fa-solid fa-fire-flame-simple me-2" aria-hidden="true"></i>Pitta — Cool & Soothe</h2>
+            <p class="text-muted">Hot, sharp, oily. Aim for cooling, moderation, and pauses.</p>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1"><span class="tip-chip">Routine</span></h3>
+                <ul class="mb-0">
+                  <li>Don’t skip meals; eat on time to avoid irritability.</li>
+                  <li>Take cooling breaks; avoid midday peak sun when possible.</li>
+                  <li>Build in non-competitive downtime daily.</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1"><span class="tip-chip">Food</span></h3>
+                <ul class="mb-0">
+                  <li>Favor sweet/bitter/astringent tastes (cucumber, gourds, leafy greens).</li>
+                  <li>Cooling drinks (room-temp water, coconut, rose water sparingly).</li>
+                  <li>Go easy on chilies, fried foods, vinegar, alcohol.</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1 mt-3 mt-sm-0"><span class="tip-chip">Movement</span></h3>
+                <ul class="mb-0">
+                  <li>Moderate intensity: swimming, evening walks, yoga.</li>
+                  <li>Keep competition low; avoid overheating.</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1 mt-3 mt-sm-0"><span class="tip-chip">Mind</span></h3>
+                <ul class="mb-0">
+                  <li>Cooling breath (sheetali/sheetkari), guided relaxations.</li>
+                  <li>Gratitude journaling; time in nature/greens.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-3 d-flex gap-2">
+              <a class="btn btn-ayu-outline btn-sm" href="products.html?d=pitta"><i class="fa-solid fa-leaf me-1" aria-hidden="true"></i>Suggested Products</a>
+              <button class="btn btn-outline-secondary btn-sm" data-copy="#pitta"><i class="fa-solid fa-link me-1" aria-hidden="true"></i>Copy link</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- KAPHA -->
+        <span id="kapha" class="section-anchor" aria-hidden="true"></span>
+        <article class="card card-ayu mb-4" data-dosha="kapha" tabindex="-1">
+          <div class="card-body">
+            <h2 class="h4 card-title"><i class="fa-solid fa-mountain-sun me-2" aria-hidden="true"></i>Kapha — Lighten & Invigorate</h2>
+            <p class="text-muted">Heavy, cool, stable. Aim for stimulation, warmth, variety.</p>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1"><span class="tip-chip">Routine</span></h3>
+                <ul class="mb-0">
+                  <li>Wake early; reduce long daytime naps.</li>
+                  <li>Keep rooms bright; open windows; seek morning light.</li>
+                  <li>Choose active breaks over passive scrolling.</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1"><span class="tip-chip">Food</span></h3>
+                <ul class="mb-0">
+                  <li>Favor light, warm, spicy foods; lots of veggies and legumes.</li>
+                  <li>Limit heavy, cold, and very sweet foods; watch portions.</li>
+                  <li>Ginger/lemon water; spices like black pepper and mustard seed.</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1 mt-3 mt-sm-0"><span class="tip-chip">Movement</span></h3>
+                <ul class="mb-0">
+                  <li>Daily moderate-to-brisk activity; intervals, stairs, cycling.</li>
+                  <li>Warm-up thoroughly; sweat a little most days.</li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="h6 mb-1 mt-3 mt-sm-0"><span class="tip-chip">Mind</span></h3>
+                <ul class="mb-0">
+                  <li>Upbeat music, social workouts, energizing breath (bhastrika gently).</li>
+                  <li>Declutter spaces to avoid inertia.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-3 d-flex gap-2">
+              <a class="btn btn-ayu-outline btn-sm" href="products.html?d=kapha"><i class="fa-solid fa-leaf me-1" aria-hidden="true"></i>Suggested Products</a>
+              <button class="btn btn-outline-secondary btn-sm" data-copy="#kapha"><i class="fa-solid fa-link me-1" aria-hidden="true"></i>Copy link</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Feedback form: moved here (immediately after Kapha) -->
+        <div class="mt-4">
+          <div class="card card-ayu">
+            <div class="card-body">
+              <h2 class="h5 mb-2"><i class="fa-solid fa-comment-dots me-2" aria-hidden="true"></i>Was this page helpful?</h2>
+              <form id="fb-form" class="needs-validation" novalidate>
+                <div class="row g-3 align-items-end">
+                  <div class="col-md-6">
+                    <label for="fbEmail" class="form-label">Email (optional)</label>
+                    <input type="email" class="form-control" id="fbEmail" name="email" autocomplete="email" placeholder="you@example.com" />
+                    <div class="invalid-feedback">Please enter a valid email or leave it blank.</div>
+                  </div>
+                  <div class="col-12">
+                    <label for="fbMsg" class="form-label">Message <span class="text-danger">*</span></label>
+                    <textarea id="fbMsg" name="message" class="form-control" rows="3" required placeholder="Tell us what worked and what we could improve."></textarea>
+                    <div class="invalid-feedback">Please enter a brief message.</div>
+                  </div>
+                  <!-- Honeypot -->
+                  <div class="visually-hidden">
+                    <label for="fbCompany">Company</label>
+                    <input type="text" id="fbCompany" name="company" tabindex="-1" autocomplete="off" />
+                  </div>
+                  <div class="col-12 d-flex gap-2">
+                    <button class="btn btn-ayu" type="submit"><i class="fa-solid fa-paper-plane me-2" aria-hidden="true"></i>Send</button>
+                    <button class="btn btn-ayu-outline" type="reset">Clear</button>
+                  </div>
+                </div>
+                <p id="fb-announce" class="visually-hidden" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational disclaimer (now after feedback) -->
+        <div class="alert alert-warning mt-4" role="alert">
+          <i class="fa-solid fa-triangle-exclamation me-2" aria-hidden="true"></i>
+          These are general wellness suggestions. If you have any medical condition or take medications, consult a qualified practitioner.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Soft band -->
     <section class="py-4 section-soft border-top">
       <div class="container small text-muted">
         Notice what feels balancing. Small, steady changes tend to work best.
@@ -123,8 +335,11 @@
           <span class="text-muted">For educational purposes only — not medical advice.</span>
         </div>
         <div class="col-md-6 text-md-end">
-          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1"></i>FAQs</a>
-          <a href="about.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a>
+          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1" aria-hidden="true"></i>FAQs</a>
+          <a class="me-3" href="about.html"><i class="fa-solid fa-envelope me-1" aria-hidden="true"></i>Contact</a>
+          <a class="me-3" href="sitemap.xml"><i class="fa-solid fa-sitemap me-1" aria-hidden="true"></i>Sitemap</a>
+          <a class="me-3" href="robots.txt"><i class="fa-solid fa-robot me-1" aria-hidden="true"></i>Robots</a>
+          <a href=".well-known/security.txt"><i class="fa-solid fa-shield-halved me-1" aria-hidden="true"></i>Security.txt</a>
         </div>
       </div>
       <div class="text-center text-muted mt-2">© 2025 Know Your Dosha</div>
@@ -136,9 +351,88 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
+    defer
   ></script>
 
-  <!-- Your dynamic logic -->
-  <script src="assets/js/script.js"></script>
+  <!-- Page JS: personalization, filters, accessible form -->
+  <script>
+    (function () {
+      const which = document.getElementById('which-mode');
+      const qs = new URLSearchParams(location.search);
+      const override = (qs.get('d') || '').toLowerCase().trim();
+      const saved = (localStorage.getItem('dosha') || '').toLowerCase().trim();
+      const mode = (localStorage.getItem('doshaMode') || 'prakriti');
+      const raw = override || saved;
+      const valid = ['vata','pitta','kapha'];
+      const parts = raw.split('-').filter(p => valid.includes(p));
+
+      // Header text
+      if (parts.length) {
+        const label = parts.map(p => p[0].toUpperCase()+p.slice(1)).join('–');
+        which.textContent = `Showing tips for your ${label} ${mode === 'vikriti' ? '(Vikriti)' : '(Prakriti)'}.`;
+      } else {
+        which.textContent = 'Filter to a dosha or take the assessment for personalized highlights.';
+      }
+
+      // Sort/highlight matching sections
+      const container = document.querySelector('section.py-5 .container');
+      const cards = Array.from(container.querySelectorAll('article[data-dosha]'));
+      const score = (card) => parts.reduce((acc,p)=> acc + (card.dataset.dosha.includes(p) ? 1 : 0), 0);
+      if (parts.length) {
+        cards.sort((a,b) => score(b)-score(a)).forEach(el => el.parentNode.insertBefore(el, container.firstChild));
+        cards.forEach(c => c.dataset.match = score(c) > 0 ? '1' : '0');
+      }
+
+      // Filter buttons
+      const announce = document.getElementById('filter-announce');
+      document.querySelectorAll('[data-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const f = btn.getAttribute('data-filter');
+          document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed', b===btn ? 'true':'false'));
+          cards.forEach(card => {
+            card.style.display = (f === 'all' || card.dataset.dosha === f) ? '' : 'none';
+          });
+          announce.textContent = f === 'all' ? 'Showing all tips.' : `Showing ${f} tips.`;
+          const first = cards.find(c => c.style.display !== 'none');
+          first && first.focus();
+        });
+      });
+
+      // Copy deep link
+      document.querySelectorAll('button[data-copy]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-copy');
+          const url = new URL(location.href);
+          url.hash = id.replace('#','');
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(url.toString());
+            announce.textContent = 'Link copied to clipboard.';
+          }
+        });
+      });
+
+      // Feedback mailto
+      const form = document.getElementById('fb-form');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('fbEmail');
+        const msg = document.getElementById('fbMsg');
+        const hp = document.getElementById('fbCompany');
+        if (hp && hp.value.trim() !== '') return; // honeypot
+        if (email && email.value && !email.checkValidity()) {
+          form.classList.add('was-validated'); return;
+        }
+        if (!msg.value.trim()) { form.classList.add('was-validated'); return; }
+        const subject = encodeURIComponent('Lifestyle page feedback');
+        const body = encodeURIComponent(`Message:\n${msg.value}\n\nEmail: ${email.value || '(not provided)'}\nPage: ${location.href}`);
+        window.location.href = `mailto:ipm05hardikkh@iimrohtak.ac.in?subject=${subject}&body=${body}`;
+        const a = document.getElementById('fb-announce');
+        if (a) a.textContent = 'Opening your email app to send the feedback.';
+      });
+    })();
+  </script>
+
+  <!-- Base site JS (optional) -->
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>

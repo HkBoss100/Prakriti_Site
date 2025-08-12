@@ -3,10 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Know Your Dosha</title>
+  <title>Know Your Dosha — Discover Your Prakriti</title>
+  <meta name="description" content="A simple, educational Ayurvedic quiz to understand your Prakriti (baseline) and Vikriti (current state), with gentle, non-medical lifestyle tips." />
+  <link rel="canonical" href="https://example.com/index.html" />
 
-  <!-- Favicon -->
+  <!-- Icons -->
   <link rel="icon" href="favicon.ico" />
+
+  <!-- Preconnects for performance -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+  <!-- Preload hero image (adjust path if different) -->
+  <link rel="preload" as="image"
+        href="assets/img/hero-ayu.webp"
+        imagesizes="(min-width: 992px) 480px, 80vw" />
 
   <!-- Bootstrap CSS -->
   <link
@@ -16,32 +27,47 @@
     crossorigin="anonymous"
   />
 
-  <!-- Font Awesome (icons on links) -->
+  <!-- Font Awesome (icons) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     referrerpolicy="no-referrer"
   />
 
-  <!-- Your CSS then Theme (theme last so it controls colors site-wide) -->
+  <!-- Site CSS then Theme (theme last to control colors) -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/theme.css" />
 
   <style>
-    /* Small tweaks */
-    .nav-link i { margin-right: .4rem; }
+    /* Small, page-specific tweaks */
+    .nav-link i { margin-right:.4rem; }
+    .feature-img, .dosha-img { border-radius:12px; }
+    .share-btns .btn { border-radius:999px; }
+    .newsletter .form-control { max-width: 420px; }
+    .visually-hidden-focusable:active, .visually-hidden-focusable:focus {
+      position: static !important; width:auto; height:auto; margin:0; overflow:visible;
+      clip:auto; white-space:normal; padding:.5rem 1rem; border:1px solid var(--border, #ddd); background:#fff;
+    }
+    /* Ensure outline/secondary buttons are readable on light bg */
+    .btn-ayu { color:#fff !important; }
+    .btn-ayu-outline, .btn-outline-secondary, .btn-secondary {
+      background:#fff; color:var(--text, #222) !important; border:1px solid var(--border, #e6e6e6);
+    }
+    .btn-ayu-outline:hover, .btn-outline-secondary:hover, .btn-secondary:hover {
+      background:#f7f7f7; color:var(--text, #111) !important; border-color:var(--border, #d6d6d6);
+    }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-  <!-- Skip link for accessibility -->
-  <a class="skip-link btn btn-sm btn-outline-secondary ms-2 mt-2" href="#main">Skip to main content</a>
+  <!-- Skip link -->
+  <a class="visually-hidden visually-hidden-focusable position-absolute m-2" href="#main">Skip to main content</a>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Primary">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="index.html">
-        <i class="fa-solid fa-sun me-2"></i>Know Your Dosha
+        <i class="fa-solid fa-sun me-2" aria-hidden="true"></i>Know Your Dosha
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -51,29 +77,25 @@
 
       <div id="mainNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">
-              <i class="fa-solid fa-sun"></i>Home
-            </a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle"></i>About Ayurveda</a></li>
-          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll"></i>Take the Assessment</a></li>
-          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling"></i>Lifestyle</a></li>
-          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf"></i>Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om"></i>FAQs</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja"></i>About</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html"><i class="fa-solid fa-sun" aria-hidden="true"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle" aria-hidden="true"></i>About Ayurveda</a></li>
+          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll" aria-hidden="true"></i>Take the Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling" aria-hidden="true"></i>Lifestyle</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf" aria-hidden="true"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om" aria-hidden="true"></i>FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja" aria-hidden="true"></i>About</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- HERO (Ayurvedic palette + badge + themed buttons) -->
+  <!-- HERO -->
   <header class="hero-ayu py-5 border-bottom">
     <div class="container">
       <div class="row align-items-center g-4">
         <div class="col-lg-7">
           <span class="badge rounded-pill badge-ayu mb-3">
-            <i class="fa-solid fa-mortar-pestle me-1"></i> Ayurveda Basics
+            <i class="fa-solid fa-mortar-pestle me-1" aria-hidden="true"></i> Ayurveda Basics
           </span>
           <h1 class="display-5 fw-bold" style="color:var(--brand-brown);">
             Discover Your <span class="text-primary">Prakriti</span>
@@ -82,19 +104,27 @@
             A simple Ayurvedic quiz to understand your constitution (Prakriti) and current state (Vikriti),
             with gentle, non-medical lifestyle tips.
           </p>
-          <div class="d-flex gap-2">
+          <div class="d-flex flex-wrap gap-2">
             <a class="btn btn-ayu btn-lg" href="test.html">
-              <i class="fa-solid fa-clipboard-list me-2"></i>Start Assessment
+              <i class="fa-solid fa-clipboard-list me-2" aria-hidden="true"></i>Start Assessment
             </a>
             <a class="btn btn-ayu-outline btn-lg" href="about-ayurveda.html">
-              <i class="fa-solid fa-book-open me-2"></i>Learn the Basics
+              <i class="fa-solid fa-book-open me-2" aria-hidden="true"></i>Learn the Basics
             </a>
+            <button id="share-hero" class="btn btn-outline-secondary btn-lg" type="button" aria-label="Share this page">
+              <i class="fa-solid fa-share-nodes me-2" aria-hidden="true"></i>Share
+            </button>
           </div>
         </div>
         <div class="col-lg-5 text-center">
-          <!-- Use your hero image; fallback to favicon if that's what you have -->
-          <img src="favicon.png" class="img-fluid rounded-3 border"
-               alt="Sage holding Ayurvedic scripture with sunrise" width="400" height="400">
+          <picture>
+            <source srcset="assets/img/hero-ayu.webp" type="image/webp" />
+            <source srcset="assets/img/hero-ayu.png" type="image/png" />
+            <img class="img-fluid rounded-3 border"
+                 src="assets/img/hero-ayu.png"
+                 alt="Illustration of an Ayurvedic sage reading a palm-leaf manuscript at sunrise"
+                 width="480" height="420" decoding="async" fetchpriority="high" />
+          </picture>
         </div>
       </div>
     </div>
@@ -102,31 +132,39 @@
 
   <!-- MAIN -->
   <main id="main" class="flex-grow-1">
-    <!-- FEATURES / WHAT YOU GET -->
+
+    <!-- HOW IT WORKS (adds scroll depth, images per block) -->
     <section class="py-5">
       <div class="container">
-        <div class="row g-4">
+        <h2 class="h3 mb-4" style="color:var(--brand-brown);">How it works</h2>
+        <div class="row g-4 align-items-stretch">
           <div class="col-md-4">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-list-check me-2"></i>Quick Quiz</h5>
-                <p class="card-text">Answer ~12 questions to estimate Vata, Pitta, and Kapha balance.</p>
+                <h3 class="h5 card-title"><i class="fa-solid fa-list-check me-2" aria-hidden="true"></i>1) Take the quiz</h3>
+                <p class="card-text">Answer ~12 easy questions. We estimate your Vata, Pitta, and Kapha mix and store it in your browser only (no login).</p>
+                <a class="btn btn-ayu-outline btn-sm" href="test.html">Start now</a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-scale-balanced me-2"></i>Prakriti &amp; Vikriti</h5>
-                <p class="card-text">See your constitution (baseline) and current imbalances (today’s state).</p>
+                <h3 class="h5 card-title"><i class="fa-solid fa-chart-simple me-2" aria-hidden="true"></i>2) View your result</h3>
+                <p class="card-text">See your dominant dosha—or a near-tie—on the results page, with an optional bar chart of your mix.</p>
+                <a class="btn btn-ayu-outline btn-sm" href="result.html">See example</a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-seedling me-2"></i>Gentle Tips</h5>
-                <p class="card-text">Lifestyle, daily routine, and food suggestions—non-medical and optional.</p>
+                <h3 class="h5 card-title"><i class="fa-solid fa-seedling me-2" aria-hidden="true"></i>3) Explore gentle tips</h3>
+                <p class="card-text">Browse safe, optional lifestyle ideas. We reorder tips/products softly based on your saved dosha.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-ayu-outline btn-sm" href="lifestyle.html">Lifestyle</a>
+                  <a class="btn btn-ayu-outline btn-sm" href="products.html">Products</a>
+                </div>
               </div>
             </div>
           </div>
@@ -134,7 +172,7 @@
       </div>
     </section>
 
-    <!-- DOSHA CARDS (tinted section, consistent tones) -->
+    <!-- DOSHAS (each with image) -->
     <section class="py-5 section-soft border-top">
       <div class="container">
         <h2 class="h3 mb-4" style="color:var(--brand-brown);">Three Doshas</h2>
@@ -142,7 +180,7 @@
           <div class="col-md-4">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-feather-pointed me-2"></i>Vata</h5>
+                <h3 class="h5 card-title"><i class="fa-solid fa-feather-pointed me-2" aria-hidden="true"></i>Vata</h3>
                 <p class="card-text">Light, dry, cool, mobile. Supports movement, creativity, adaptability.</p>
                 <a class="btn btn-ayu-outline btn-sm" href="lifestyle.html#vata">See Vata Tips</a>
               </div>
@@ -151,7 +189,7 @@
           <div class="col-md-4">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-fire-flame-simple me-2"></i>Pitta</h5>
+                <h3 class="h5 card-title"><i class="fa-solid fa-fire-flame-simple me-2" aria-hidden="true"></i>Pitta</h3>
                 <p class="card-text">Hot, sharp, oily. Governs digestion, metabolism, clarity.</p>
                 <a class="btn btn-ayu-outline btn-sm" href="lifestyle.html#pitta">See Pitta Tips</a>
               </div>
@@ -160,7 +198,7 @@
           <div class="col-md-4">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-mountain-sun me-2"></i>Kapha</h5>
+                <h3 class="h5 card-title"><i class="fa-solid fa-mountain-sun me-2" aria-hidden="true"></i>Kapha</h3>
                 <p class="card-text">Heavy, cool, stable. Provides structure, lubrication, calm.</p>
                 <a class="btn btn-ayu-outline btn-sm" href="lifestyle.html#kapha">See Kapha Tips</a>
               </div>
@@ -169,6 +207,62 @@
         </div>
       </div>
     </section>
+
+    <!-- SOCIAL / SUBSCRIBE (accessible form + share buttons) -->
+    <section class="py-5 border-top">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <h2 class="h4 mb-3"><i class="fa-solid fa-share-nodes me-2" aria-hidden="true"></i>Share with a friend</h2>
+            <div class="share-btns d-flex flex-wrap gap-2">
+              <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                 href="https://wa.me/?text=Check%20your%20dosha%20here:%20https%3A%2F%2Fexample.com%2Findex.html"
+                 aria-label="Share on WhatsApp"><i class="fa-brands fa-whatsapp me-2" aria-hidden="true"></i>WhatsApp</a>
+              <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                 href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fexample.com%2Findex.html"
+                 aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin me-2" aria-hidden="true"></i>LinkedIn</a>
+              <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                 href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fexample.com%2Findex.html&text=Discover%20your%20Prakriti"
+                 aria-label="Share on X/Twitter"><i class="fa-brands fa-x-twitter me-2" aria-hidden="true"></i>X</a>
+              <button id="share-native" class="btn btn-outline-secondary" type="button">
+                <i class="fa-solid fa-share-from-square me-2" aria-hidden="true"></i>Native Share
+              </button>
+            </div>
+            <p id="share-announce" class="visually-hidden" aria-live="polite"></p>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="newsletter card card-ayu">
+              <div class="card-body">
+                <h3 class="h5 mb-2"><i class="fa-solid fa-envelope-open-text me-2" aria-hidden="true"></i>Get occasional updates</h3>
+                <form id="subscribe-form" class="needs-validation" novalidate>
+                  <label for="email" class="form-label">Email</label>
+                  <input id="email" name="email" type="email" class="form-control" autocomplete="email" required
+                         aria-describedby="emailHelp" />
+                  <div id="emailHelp" class="form-text">We’ll send a one-time welcome message. You can reply to unsubscribe anytime.</div>
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                  <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-ayu" type="submit"><i class="fa-solid fa-paper-plane me-2" aria-hidden="true"></i>Subscribe</button>
+                    <a class="btn btn-ayu-outline" href="https://www.linkedin.com/in/hardik-khandelwal-boss/" target="_blank" rel="noopener">
+                      <i class="fa-brands fa-linkedin me-2" aria-hidden="true"></i>LinkedIn
+                    </a>
+                  </div>
+                  <!-- Honeypot -->
+                  <div class="visually-hidden">
+                    <label for="company">Company</label>
+                    <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+                  </div>
+                  <p id="sub-announce" class="visually-hidden" aria-live="polite"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="small text-muted mt-3">Educational use only — not medical advice.</p>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -179,19 +273,85 @@
           <span class="text-muted">For educational purposes only — not medical advice.</span>
         </div>
         <div class="col-md-6 text-md-end">
-          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1"></i>FAQs</a>
-          <a href="about.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a>
+          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1" aria-hidden="true"></i>FAQs</a>
+          <a class="me-3" href="about.html"><i class="fa-solid fa-envelope me-1" aria-hidden="true"></i>Contact</a>
+          <a href="sitemap.xml" class="me-3"><i class="fa-solid fa-sitemap me-1" aria-hidden="true"></i>Sitemap</a>
+          <a href="robots.txt" class="me-3"><i class="fa-solid fa-robot me-1" aria-hidden="true"></i>Robots</a>
+          <a href=".well-known/security.txt"><i class="fa-solid fa-shield-halved me-1" aria-hidden="true"></i>Security.txt</a>
         </div>
       </div>
       <div class="text-center text-muted mt-2">© 2025 Know Your Dosha</div>
     </div>
   </footer>
 
-  <!-- Bootstrap JS (for navbar toggler, etc.) -->
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Know Your Dosha",
+    "url":"https://example.com/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://example.com/faq.html?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Bootstrap JS -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
+    defer
   ></script>
+
+  <!-- Page JS: accessible share + subscribe (mailto) -->
+  <script>
+    // Native share (with clipboard fallback)
+    (function(){
+      const btn1 = document.getElementById('share-hero');
+      const btn2 = document.getElementById('share-native');
+      const announce = document.getElementById('share-announce');
+      function share() {
+        const url = location.href;
+        const text = "Discover your Prakriti with this simple, educational Ayurvedic quiz.";
+        if (navigator.share) {
+          navigator.share({ title: document.title, text, url }).catch(()=>{});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(()=> announce.textContent = "Link copied to clipboard.");
+        } else {
+          announce.textContent = "Sharing not supported on this device.";
+        }
+      }
+      btn1?.addEventListener('click', share);
+      btn2?.addEventListener('click', share);
+    })();
+
+    // Accessible subscribe form using mailto (no backend)
+    (function () {
+      const form = document.getElementById('subscribe-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (form.company && form.company.value.trim() !== '') return; // honeypot
+
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return;
+        }
+
+        const email = document.getElementById('email').value.trim();
+        const subject = encodeURIComponent("Subscribe: Know Your Dosha");
+        const body = encodeURIComponent(`Please add me to updates.\n\nEmail: ${email}\nSource: Home page`);
+        window.location.href = `mailto:ipm05hardikkh@iimrohtak.ac.in?subject=${subject}&body=${body}`;
+
+        const a = document.getElementById('sub-announce');
+        if (a) a.textContent = "Opening your email app to send the request.";
+      });
+    })();
+  </script>
 </body>
 </html>

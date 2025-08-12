@@ -68,3 +68,20 @@
 /* Accessibility helpers */
 .skip-link{position:absolute;left:-9999px}
 .skip-link:focus{position:static;margin:.5rem}
+
+/* Solid Ayurvedic button — visible even before hover */
+.btn-ayu{
+  background-color: var(--brand-brown, #8a4b2d) !important;
+  border: 1px solid var(--brand-brown, #8a4b2d) !important;
+  color: #fff !important;
+}
+
+.btn-ayu:hover,
+.btn-ayu:focus {
+  background-color: #6f3d24 !important; /* a darker brown */
+  border-color: #6f3d24 !important;
+  color: #fff !important;
+}
+
+.btn-ayu:disabled { opacity: .65; }
+

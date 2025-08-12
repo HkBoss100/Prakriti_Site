@@ -228,12 +228,12 @@
     crossorigin="anonymous"
   ></script>
 
-  <!-- Soft gate: require token in URL (e.g., ?t=IIMR2025) -->
+  <!-- Soft gate: require token in URL (e.g., ?t=IIMR) -->
   <script>
     (function () {
       const url = new URL(window.location.href);
       const token = url.searchParams.get('t');
-      const REQUIRED = 'IIMR2025'; // change if you want
+      const REQUIRED = 'IIMR'; // change if you want
 
       // unlock only with correct token
       if (token === REQUIRED) {

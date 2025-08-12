@@ -5,8 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FAQs • Know Your Dosha</title>
 
+  <!-- Basic SEO / Social cards -->
+  <meta name="description" content="Frequently asked questions about Prakriti, Vikriti, and using this Ayurvedic site." />
+  <meta property="og:title" content="FAQs • Know Your Dosha" />
+  <meta property="og:description" content="Quick answers about Prakriti, Vikriti, and how to use this site." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/Prakriti_Site/faq.html" />
+  <meta property="og:image" content="https://yourusername.github.io/Prakriti_Site/images/faq/faq-hero.jpg" />
+
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" />
+
+  <!-- Performance: preconnect CDNs -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- Bootstrap CSS -->
   <link
@@ -29,6 +41,9 @@
 
   <style>
     .nav-link i { margin-right:.4rem; }
+    .faq-figure { margin: 0 0 1rem 0; }
+    .faq-figure figcaption { font-size:.9rem; color:#6c757d; }
+    .share-btns a { text-decoration: none; }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -62,14 +77,28 @@
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
+  <!-- PAGE HEADER with relevant photo -->
   <header class="py-5 hero-ayu border-bottom">
     <div class="container">
-      <span class="badge rounded-pill badge-ayu mb-3">
-        <i class="fa-solid fa-circle-question me-1"></i> Help & Guidance
-      </span>
-      <h1 class="display-6 mb-1" style="color:var(--brand-brown);">Frequently Asked Questions</h1>
-      <p class="text-muted mb-0">Quick answers about Prakriti, Vikriti, and how to use this site.</p>
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="badge rounded-pill badge-ayu mb-3">
+            <i class="fa-solid fa-circle-question me-1"></i> Help & Guidance
+          </span>
+          <h1 class="display-6 mb-1" style="color:var(--brand-brown);">Frequently Asked Questions</h1>
+          <p class="text-muted mb-0">Quick answers about Prakriti, Vikriti, and how to use this site.</p>
+        </div>
+        <div class="col-lg-5">
+          <figure class="faq-figure text-center">
+            <picture>
+              <img src="assets/img/faq.webp" class="img-fluid rounded-3 border"
+                   width="560" height="360" loading="lazy"
+                   alt="FAQ">
+            </picture>
+            <figcaption>Understanding balance through simple questions.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -78,7 +107,8 @@
     <section class="py-5">
       <div class="container">
         <!-- FAQ Accordion -->
-        <div class="accordion" id="faqAccordion">
+        <div class="accordion" id="faqAccordion" role="region" aria-label="Frequently Asked Questions">
+
           <!-- 1 -->
           <div class="accordion-item card-ayu">
             <h2 class="accordion-header" id="q1">
@@ -89,10 +119,19 @@
             </h2>
             <div id="a1" class="accordion-collapse collapse show" aria-labelledby="q1" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
+                <figure class="faq-figure">
+                  <picture>
+                    <source srcset="images/faq/seasons.webp" type="image/webp">
+                    <img src="images/faq/seasons.jpg" class="img-fluid rounded" width="800" height="450" loading="lazy"
+                         alt="Collage of seasonal changes illustrating how the body adapts">
+                  </picture>
+                  <figcaption>Seasons and lifestyle can shift how doshas express day to day.</figcaption>
+                </figure>
                 Prakriti is considered constant; however, your current state (Vikriti) can shift with season, lifestyle, and stress.
               </div>
             </div>
           </div>
+
           <!-- 2 -->
           <div class="accordion-item card-ayu">
             <h2 class="accordion-header" id="q2">
@@ -103,10 +142,19 @@
             </h2>
             <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
+                <figure class="faq-figure">
+                  <picture>
+                    <source srcset="images/faq/balance-scales.webp" type="image/webp">
+                    <img src="images/faq/balance-scales.jpg" class="img-fluid rounded" width="800" height="450" loading="lazy"
+                         alt="Balance scales symbolizing bringing the body back to equilibrium">
+                  </picture>
+                  <figcaption>Focus on the currently elevated dosha to restore balance.</figcaption>
+                </figure>
                 Support the currently elevated dosha (Vikriti) with opposite qualities until balance returns.
               </div>
             </div>
           </div>
+
           <!-- 3 -->
           <div class="accordion-item card-ayu">
             <h2 class="accordion-header" id="q3">
@@ -117,10 +165,19 @@
             </h2>
             <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
+                <figure class="faq-figure">
+                  <picture>
+                    <source srcset="images/faq/doctor-consult.webp" type="image/webp">
+                    <img src="images/faq/doctor-consult.jpg" class="img-fluid rounded" width="800" height="450" loading="lazy"
+                         alt="Consultation with a healthcare professional">
+                  </picture>
+                  <figcaption>Educational guidance is not a substitute for medical care.</figcaption>
+                </figure>
                 No. This is an educational tool only. For medical issues, see a qualified professional.
               </div>
             </div>
           </div>
+
           <!-- 4 -->
           <div class="accordion-item card-ayu">
             <h2 class="accordion-header" id="q4">
@@ -131,10 +188,19 @@
             </h2>
             <div id="a4" class="accordion-collapse collapse" aria-labelledby="q4" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
+                <figure class="faq-figure">
+                  <picture>
+                    <source srcset="images/faq/healthy-food.webp" type="image/webp">
+                    <img src="images/faq/healthy-food.jpg" class="img-fluid rounded" width="800" height="450" loading="lazy"
+                         alt="Wholesome foods representing balanced meals">
+                  </picture>
+                  <figcaption>Favor opposite qualities to the dosha that’s elevated.</figcaption>
+                </figure>
                 Yes—start small. Favor foods and routines with opposite qualities to the dosha that’s elevated.
               </div>
             </div>
           </div>
+
           <!-- 5 -->
           <div class="accordion-item card-ayu">
             <h2 class="accordion-header" id="q5">
@@ -145,6 +211,14 @@
             </h2>
             <div id="a5" class="accordion-collapse collapse" aria-labelledby="q5" data-bs-parent="#faqAccordion">
               <div class="accordion-body">
+                <figure class="faq-figure">
+                  <picture>
+                    <source srcset="images/faq/meditation-balance.webp" type="image/webp">
+                    <img src="images/faq/meditation-balance.jpg" class="img-fluid rounded" width="800" height="450" loading="lazy"
+                         alt="Meditative scene symbolizing balance and awareness">
+                  </picture>
+                  <figcaption>Blend tips and notice what feels most balancing for you.</figcaption>
+                </figure>
                 You can apply a mix of suggestions. Notice which set feels most balancing and lean that way.
               </div>
             </div>
@@ -152,19 +226,128 @@
         </div>
 
         <!-- Helpful actions (icons on links) -->
-        <div class="mt-4 d-flex gap-2">
+        <div class="mt-4 d-flex flex-wrap gap-2">
           <a class="btn btn-ayu" href="test.html"><i class="fa-solid fa-clipboard-list me-2"></i>Take the Assessment</a>
           <a class="btn btn-ayu-outline" href="about-ayurveda.html"><i class="fa-solid fa-book-open me-2"></i>Learn the Basics</a>
         </div>
       </div>
     </section>
 
-    <!-- Optional: soft band for tone consistency -->
-    <section class="py-4 section-soft border-top">
-      <div class="container small text-muted">
-        Tips are educational only and may not apply to every individual. Listen to your body and consult a professional for medical concerns.
+    <!-- Social Sharing -->
+    <section class="py-5 border-top">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <h2 class="h4 mb-2" style="color:var(--brand-brown);"><i class="fa-solid fa-share-nodes me-2"></i>Share this page</h2>
+            <p class="text-muted mb-3">Spread the word—share these FAQs with friends who are curious about Ayurveda.</p>
+            <div class="d-flex flex-wrap gap-2 share-btns">
+              <!-- Replace url param with your live URL -->
+              <a class="btn btn-ayu" target="_blank" rel="noopener"
+                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyourusername.github.io%2FPrakriti_Site%2Ffaq.html">
+                <i class="fa-brands fa-facebook-f me-2"></i>Facebook
+              </a>
+              <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                 href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fyourusername.github.io%2FPrakriti_Site%2Ffaq.html&text=FAQs%20about%20Prakriti%20%26%20Vikriti">
+                <i class="fa-brands fa-x-twitter me-2"></i>Post on X
+              </a>
+              <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                 href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fyourusername.github.io%2FPrakriti_Site%2Ffaq.html">
+                <i class="fa-brands fa-linkedin-in me-2"></i>LinkedIn
+              </a>
+              <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                 href="https://wa.me/?text=Check%20out%20these%20Ayurveda%20FAQs%3A%20https%3A%2F%2Fyourusername.github.io%2FPrakriti_Site%2Ffaq.html">
+                <i class="fa-brands fa-whatsapp me-2"></i>WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <figure class="faq-figure text-center">
+              <picture>
+                <source srcset="images/faq/share.webp" type="image/webp">
+                <img src="images/faq/share.jpg" class="img-fluid rounded-3 border"
+                     width="560" height="360" loading="lazy"
+                     alt="Hands sharing information on a mobile device">
+              </picture>
+              <figcaption>Sharing helps more people learn the basics safely.</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- Accessible Contact Form (for clarifications) -->
+    <section class="py-5 section-soft border-top">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <h2 class="h4 mb-3" style="color:var(--brand-brown);"><i class="fa-solid fa-envelope-open-text me-2"></i>Still have a question?</h2>
+            <p class="text-muted">Send us a note. We’ll reply at the email you provide (educational guidance only).</p>
+
+            <form class="needs-validation" novalidate aria-describedby="contactHelp">
+              <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input id="name" name="name" type="text" class="form-control" required
+                       autocomplete="name" aria-describedby="nameHelp">
+                <div id="nameHelp" class="form-text">Tell us what to call you.</div>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input id="email" name="email" type="email" class="form-control" required
+                       inputmode="email" autocomplete="email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We’ll only use this to respond to your question.</div>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="message" class="form-label">Your Question</label>
+                <textarea id="message" name="message" rows="4" class="form-control" required
+                          aria-describedby="msgHelp"></textarea>
+                <div id="msgHelp" class="form-text">Avoid personal medical details.</div>
+                <div class="invalid-feedback">Please enter your question.</div>
+              </div>
+
+              <!-- ARIA live region for form status -->
+              <div aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+              <div class="d-flex gap-2">
+                <button class="btn btn-ayu" type="submit">
+                  <i class="fa-solid fa-paper-plane me-2"></i>Send
+                </button>
+                <a class="btn btn-ayu-outline" href="about.html">
+                  <i class="fa-brands fa-linkedin me-2"></i>Connect on LinkedIn
+                </a>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-6">
+            <figure class="faq-figure">
+              <picture>
+                <source srcset="images/faq/contact.webp" type="image/webp">
+                <img src="images/faq/contact.jpg" class="img-fluid rounded-3 border"
+                     width="720" height="480" loading="lazy"
+                     alt="Writing a message on paper with herbal elements around">
+              </picture>
+              <figcaption>We appreciate thoughtful questions and feedback.</figcaption>
+            </figure>
+            <p class="small text-muted mb-0" id="contactHelp">
+              For direct email, reach us via the address on the About page.
+              Professional profile: <a class="link-primary" target="_blank" rel="noopener"
+              href="https://www.linkedin.com/in/hardik-khandelwal-boss/">LinkedIn</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to top -->
+    <div class="container my-4">
+      <div class="text-end">
+        <a href="#top" class="btn btn-ayu-outline btn-sm"><i class="fa-solid fa-arrow-up me-1"></i>Back to top</a>
+      </div>
+    </div>
   </main>
 
   <!-- FOOTER -->
@@ -176,7 +359,10 @@
         </div>
         <div class="col-md-6 text-md-end">
           <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1"></i>FAQs</a>
-          <a href="about.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a>
+          <a class="me-3" href="about.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a>
+          <!-- Public paths for config files -->
+          <a class="me-3" href="robots.txt" rel="nofollow">robots.txt</a>
+          <a href="sitemap.xml" rel="nofollow">sitemap.xml</a>
         </div>
       </div>
       <div class="text-center text-muted mt-2">© 2025 Know Your Dosha</div>
@@ -189,5 +375,25 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
   ></script>
+
+  <!-- Accessible client-side form validation -->
+  <script>
+    (function () {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          } else {
+            event.preventDefault(); // prevent actual submit (no backend)
+            alert('Thanks! Your question has been noted.'); // replace with backend later
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
 </body>
 </html>

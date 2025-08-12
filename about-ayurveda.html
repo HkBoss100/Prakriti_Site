@@ -4,9 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Ayurveda • Know Your Dosha</title>
+  <meta name="description" content="Overview of Ayurveda: Doshas, Prakriti & Vikriti, elements and daily routine (dinacharya). Educational, accessible, and mobile-friendly." />
+  <link rel="canonical" href="https://example.com/about-ayurveda.html" />
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preload" as="image"
+        href="assets/img/ayu-overview-hero.webp"
+        imagesrcset="assets/img/ayu-overview-hero.webp 1x, assets/img/ayu-overview-hero@2x.webp 2x"
+        imagesizes="(min-width: 992px) 520px, 90vw" />
 
   <!-- Bootstrap CSS -->
   <link
@@ -27,19 +37,35 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/theme.css" />
 
-  <meta name="description" content="Overview of Ayurveda, Doshas, Prakriti and Vikriti.">
-  <style>.nav-link i{margin-right:.4rem}</style>
+  <style>
+    .nav-link i{margin-right:.4rem}
+    .card-ayu img{border-radius:12px}
+    .badge-ayu{background:var(--brand-brown,#8a4b2d);color:#fff}
+    .btn-ayu{color:#fff !important}
+    .btn-ayu-outline,.btn-outline-secondary,.btn-secondary{
+      background:#fff;color:var(--text,#222) !important;border:1px solid var(--border,#e6e6e6)
+    }
+    .btn-ayu-outline:hover,.btn-outline-secondary:hover,.btn-secondary:hover{
+      background:#f7f7f7;color:var(--text,#111) !important;border-color:var(--border,#d6d6d6)
+    }
+    .visually-hidden-focusable:active,.visually-hidden-focusable:focus{
+      position:static !important;width:auto;height:auto;margin:0;overflow:visible;clip:auto;
+      white-space:normal;padding:.5rem 1rem;border:1px solid var(--border,#ddd);background:#fff
+    }
+    .element-badge{display:inline-block;border:1px solid var(--border,#e6e6e6);border-radius:999px;padding:.1rem .6rem;margin:.1rem .2rem}
+    .table thead th{background:#fffdf9}
+  </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
   <!-- Skip link -->
-  <a class="skip-link btn btn-sm btn-outline-secondary ms-2 mt-2" href="#main">Skip to main content</a>
+  <a class="visually-hidden visually-hidden-focusable position-absolute m-2" href="#main">Skip to main content</a>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Primary">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="index.html">
-        <i class="fa-solid fa-sun me-2"></i>Know Your Dosha
+        <i class="fa-solid fa-sun me-2" aria-hidden="true"></i>Know Your Dosha
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -49,13 +75,13 @@
 
       <div id="mainNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun"></i>Home</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle"></i>About Ayurveda</a></li>
-          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll"></i>Take the Assessment</a></li>
-          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling"></i>Lifestyle</a></li>
-          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf"></i>Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om"></i>FAQs</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja"></i>About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun" aria-hidden="true"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle" aria-hidden="true"></i>About Ayurveda</a></li>
+          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll" aria-hidden="true"></i>Take the Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling" aria-hidden="true"></i>Lifestyle</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf" aria-hidden="true"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om" aria-hidden="true"></i>FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja" aria-hidden="true"></i>About</a></li>
         </ul>
       </div>
     </div>
@@ -64,25 +90,43 @@
   <!-- PAGE HEADER -->
   <header class="py-5 hero-ayu border-bottom">
     <div class="container">
-      <span class="badge rounded-pill badge-ayu mb-3">
-        <i class="fa-solid fa-mortar-pestle me-1"></i> Ayurveda Overview
-      </span>
-      <h1 class="display-6 mb-1" style="color:var(--brand-brown);">Ayurveda in Brief</h1>
-      <p class="text-muted mb-0">The science of life: balancing Vata, Pitta, and Kapha for well-being.</p>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <span class="badge rounded-pill badge-ayu mb-3">
+            <i class="fa-solid fa-mortar-pestle me-1" aria-hidden="true"></i> Ayurveda Overview
+          </span>
+          <h1 class="display-6 mb-2" style="color:var(--brand-brown);">Ayurveda in Brief</h1>
+          <p class="text-muted mb-0">The science of life: balancing Vata, Pitta, and Kapha for well-being.</p>
+        </div>
+        <div class="col-lg-5 text-center">
+          <picture>
+            <img src="assets/img/doshas.png" class="img-fluid rounded-3 border"
+                 alt="Illustration of Ayurvedic elements and doshas"
+                 width="520" height="360" loading="eager" decoding="async" />
+          </picture>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- MAIN -->
   <main id="main" class="flex-grow-1">
+
     <!-- Intro -->
     <section class="py-5">
       <div class="container">
-        <div class="card card-ayu">
-          <div class="card-body">
-            <p class="mb-0">
-              Ayurveda, the “science of life,” describes health as a dynamic balance of three organizing principles—<strong>Vata</strong>, <strong>Pitta</strong>, and <strong>Kapha</strong>—called <em>doshas</em>.
-              Each person has a unique combination at baseline (their <em>Prakriti</em>). Day-to-day life can shift how the doshas express (your <em>Vikriti</em>).
-            </p>
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <div class="card card-ayu h-100">
+              <div class="card-body">
+                <p class="mb-0">
+                  Ayurveda, the “science of life,” describes health as a dynamic balance of three organizing principles—<strong>Vata</strong>, <strong>Pitta</strong>, and <strong>Kapha</strong>—called <em>doshas</em>.
+                  Each person has a unique combination at baseline (their <em>Prakriti</em>). Day-to-day living can shift how the doshas express (your <em>Vikriti</em>).
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
           </div>
         </div>
       </div>
@@ -93,26 +137,26 @@
       <div class="container">
         <h2 class="h4 mb-4" style="color:var(--brand-brown);">The Three Doshas</h2>
         <div class="row g-4">
-          <div class="col-md-4">
+          <div class="col-md-4" id="vata">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-feather-pointed me-2"></i>Vata (air/space)</h5>
+                <h3 class="h5 card-title"><i class="fa-solid fa-feather-pointed me-2" aria-hidden="true"></i>Vata (air/space)</h3>
                 <p class="card-text mb-0">Light, dry, cool, mobile. Imbalance may show dryness, restlessness, variable appetite.</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" id="pitta">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-fire-flame-simple me-2"></i>Pitta (fire/water)</h5>
+                <h3 class="h5 card-title"><i class="fa-solid fa-fire-flame-simple me-2" aria-hidden="true"></i>Pitta (fire/water)</h3>
                 <p class="card-text mb-0">Hot, sharp, intense. Imbalance can appear as irritability, overheating, strong appetite, loose stools.</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" id="kapha">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-mountain-sun me-2"></i>Kapha (earth/water)</h5>
+                <h3 class="h5 card-title"><i class="fa-solid fa-mountain-sun me-2" aria-hidden="true"></i>Kapha (earth/water)</h3>
                 <p class="card-text mb-0">Heavy, slow, stable, cool. Imbalance may present as sluggishness, congestion, weight gain.</p>
               </div>
             </div>
@@ -121,37 +165,143 @@
 
         <div class="mt-4">
           <a class="btn btn-ayu me-2" href="test.html">
-            <i class="fa-solid fa-clipboard-list me-2"></i>Take the Assessment
+            <i class="fa-solid fa-clipboard-list me-2" aria-hidden="true"></i>Take the Assessment
           </a>
           <a class="btn btn-ayu-outline" href="lifestyle.html">
-            <i class="fa-solid fa-seedling me-2"></i>See Lifestyle Tips
+            <i class="fa-solid fa-seedling me-2" aria-hidden="true"></i>See Lifestyle Tips
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Prakriti vs Vikriti -->
+    <!-- Elements & Qualities -->
     <section class="py-5">
       <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-7">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-6">
             <div class="card card-ayu h-100">
               <div class="card-body">
-                <h2 class="h4 mb-3"><i class="fa-solid fa-scale-balanced me-2"></i>Prakriti vs. Vikriti</h2>
-                <p class="mb-0">
-                  <strong>Prakriti</strong> is your “set point.” <strong>Vikriti</strong> is your current state.
-                  If they differ, support the dosha that’s currently elevated (Vikriti) to move back toward your Prakriti.
+                <h2 class="h5 mb-3"><i class="fa-solid fa-atom me-2" aria-hidden="true"></i>Five Elements & Core Qualities</h2>
+                <p>Doshas are expressions of five elements (<em>pancha mahabhuta</em>):</p>
+                <p class="mb-2">
+                  <span class="element-badge">Space</span>
+                  <span class="element-badge">Air</span>
+                  <span class="element-badge">Fire</span>
+                  <span class="element-badge">Water</span>
+                  <span class="element-badge">Earth</span>
                 </p>
+                <div class="table-responsive">
+                  <table class="table align-middle">
+                    <thead>
+                      <tr>
+                        <th scope="col">Dosha</th>
+                        <th scope="col">Elements</th>
+                        <th scope="col">Key Qualities</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Vata</th>
+                        <td>Air + Space</td>
+                        <td>Light, dry, cool, mobile</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Pitta</th>
+                        <td>Fire + Water</td>
+                        <td>Hot, sharp, oily</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Kapha</th>
+                        <td>Earth + Water</td>
+                        <td>Heavy, slow, stable, cool</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="small text-muted mb-0">We use this as a teaching model, not for diagnosis.</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-5">
-            <div class="alert alert-warning h-100 mb-0" role="alert">
-              <i class="fa-solid fa-triangle-exclamation me-2"></i>
-              This site is for education only—<strong>not</strong> for diagnosis or treatment. For health concerns, consult a qualified professional.
-            </div>
+          <div class="col-lg-6">
+            <picture>
+              <img src="assets/img/doshas.png" class="img-fluid rounded-3 border"
+                   alt="Diagram showing five elements feeding into the three doshas"
+                   width="640" height="420" loading="lazy" decoding="async" />
+            </picture>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Prakriti vs Vikriti -->
+    <section class="py-5 section-soft border-top">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7 order-lg-1 order-2">
+            <div class="card card-ayu h-100">
+              <div class="card-body">
+                <h2 class="h4 mb-3"><i class="fa-solid fa-scale-balanced me-2" aria-hidden="true"></i>Prakriti vs. Vikriti</h2>
+                <p class="mb-2">
+                  <strong>Prakriti</strong> is your “set point.” <strong>Vikriti</strong> is your current state.
+                  If they differ, support the dosha that’s currently elevated (Vikriti) to move back toward your Prakriti.
+                </p>
+                <div class="alert alert-warning small mb-0" role="alert">
+                  <i class="fa-solid fa-triangle-exclamation me-2" aria-hidden="true"></i>
+                  Educational only—<strong>not</strong> for diagnosis or treatment. For health concerns, consult a qualified professional.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 order-lg-2 order-1">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily rhythm snapshot -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="h4 mb-3" style="color:var(--brand-brown);"><i class="fa-solid fa-clock me-2" aria-hidden="true"></i>Daily Rhythm (Dinacharya) — Snapshot</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card card-ayu h-100">
+              <div class="card-body">
+                <ul class="mb-0">
+                  <li><strong>Morning:</strong> Wake near sunrise, warm water, brief movement or walk.</li>
+                  <li><strong>Midday:</strong> Heaviest meal when digestion is strongest.</li>
+                  <li><strong>Evening:</strong> Lighter dinner, screen wind-down, consistent sleep time.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+          </div>
+        </div>
+        <div class="mt-3">
+          <a class="btn btn-ayu-outline btn-sm" href="lifestyle.html"><i class="fa-solid fa-seedling me-2" aria-hidden="true"></i>Explore Lifestyle Ideas</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share section (adds scrolling + social integration) -->
+    <section class="py-5 section-soft border-top">
+      <div class="container">
+        <h2 class="h5 mb-3"><i class="fa-solid fa-share-nodes me-2" aria-hidden="true"></i>Share this page</h2>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+             href="https://wa.me/?text=About%20Ayurveda%3A%20https%3A%2F%2Fexample.com%2Fabout-ayurveda.html"
+             aria-label="Share on WhatsApp"><i class="fa-brands fa-whatsapp me-2" aria-hidden="true"></i>WhatsApp</a>
+          <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+             href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fexample.com%2Fabout-ayurveda.html"
+             aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin me-2" aria-hidden="true"></i>LinkedIn</a>
+          <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+             href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fexample.com%2Fabout-ayurveda.html&text=About%20Ayurveda"
+             aria-label="Share on X/Twitter"><i class="fa-brands fa-x-twitter me-2" aria-hidden="true"></i>X</a>
+          <button id="share-native" class="btn btn-outline-secondary" type="button">
+            <i class="fa-solid fa-share-from-square me-2" aria-hidden="true"></i>Native Share
+          </button>
+        </div>
+        <p id="share-announce" class="visually-hidden" aria-live="polite"></p>
       </div>
     </section>
 
@@ -171,8 +321,11 @@
           <span class="text-muted">For educational purposes only — not medical advice.</span>
         </div>
         <div class="col-md-6 text-md-end">
-          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1"></i>FAQs</a>
-          <a href="about.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a>
+          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1" aria-hidden="true"></i>FAQs</a>
+          <a class="me-3" href="about.html"><i class="fa-solid fa-envelope me-1" aria-hidden="true"></i>Contact</a>
+          <a class="me-3" href="sitemap.xml"><i class="fa-solid fa-sitemap me-1" aria-hidden="true"></i>Sitemap</a>
+          <a class="me-3" href="robots.txt"><i class="fa-solid fa-robot me-1" aria-hidden="true"></i>Robots</a>
+          <a href=".well-known/security.txt"><i class="fa-solid fa-shield-halved me-1" aria-hidden="true"></i>Security.txt</a>
         </div>
       </div>
       <div class="text-center text-muted mt-2">© 2025 Know Your Dosha</div>
@@ -184,6 +337,27 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
+    defer
   ></script>
+
+  <!-- Page JS: native share with accessible announcement -->
+  <script>
+    (function(){
+      const btn = document.getElementById('share-native');
+      const announce = document.getElementById('share-announce');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        const url = location.href;
+        const text = "About Ayurveda — brief overview of doshas, Prakriti & Vikriti.";
+        if (navigator.share) {
+          navigator.share({title: document.title, text, url}).catch(()=>{});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(()=> announce.textContent = "Link copied to clipboard.");
+        } else {
+          announce.textContent = "Sharing not supported on this device.";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

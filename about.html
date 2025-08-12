@@ -10,6 +10,14 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" />
 
+  <!-- Performance -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preload" as="image"
+        href="assets/img/about-hero.webp"
+        imagesrcset="assets/img/about-hero.webp 1x, assets/img/about-hero@2x.webp 2x"
+        imagesizes="(min-width: 992px) 520px, 90vw" />
+
   <!-- Bootstrap CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -25,7 +33,7 @@
     referrerpolicy="no-referrer"
   />
 
-  <!-- Your CSS -->
+  <!-- Site CSS -->
   <link rel="stylesheet" href="assets/css/theme.css">
   <link rel="stylesheet" href="assets/css/style.css" />
 
@@ -42,6 +50,20 @@
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem 1rem;}
     .card h2 i, .card h3 i { opacity:.9; }
     .form-note { font-size:.875rem; }
+    .badge-ayu{background:var(--brand-brown,#8a4b2d);color:#fff}
+    .btn-ayu{color:#fff !important}
+    .btn-ayu-outline,.btn-outline-secondary,.btn-secondary{
+      background:#fff;color:var(--text,#222) !important;border:1px solid var(--border,#e6e6e6)
+    }
+    .btn-ayu-outline:hover,.btn-outline-secondary:hover,.btn-secondary:hover{
+      background:#f7f7f7;color:var(--text,#111) !important;border-color:var(--border,#d6d6d6)
+    }
+    .share-btns .btn{border-radius:999px}
+    .card-ayu img{border-radius:12px}
+    .visually-hidden-focusable:active,.visually-hidden-focusable:focus{
+      position:static !important;width:auto;height:auto;margin:0;overflow:visible;clip:auto;
+      white-space:normal;padding:.5rem 1rem;border:1px solid var(--border,#ddd);background:#fff
+    }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -77,10 +99,24 @@
   <!-- MAIN -->
   <main id="main" class="flex-grow-1">
     <!-- Header band -->
-    <header class="py-5 bg-light border-bottom">
+    <header class="py-5 hero-ayu border-bottom">
       <div class="container">
-        <h1 class="display-6 mb-1">About & Contact</h1>
-        <p class="text-muted mb-0">A student project to make Ayurvedic concepts simple and accessible.</p>
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <span class="badge rounded-pill badge-ayu mb-3">
+              <i class="fa-solid fa-scroll me-1" aria-hidden="true"></i> About & Contact
+            </span>
+            <h1 class="display-6 mb-1" style="color:var(--brand-brown);">About & Contact</h1>
+            <p class="text-muted mb-0">A student project to make Ayurvedic concepts simple and accessible.</p>
+          </div>
+          <div class="col-lg-5 text-center">
+            <picture>
+              <img src="assets/img/ayurveda.webp" class="img-fluid rounded-3 border"
+                   alt="Ayurveda"
+                   width="520" height="360" loading="eager" decoding="async" />
+            </picture>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -90,7 +126,7 @@
         <div class="row g-4">
           <!-- About card -->
           <div class="col-lg-7">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 shadow-sm card-ayu">
               <div class="card-body">
                 <h2 class="h4 mb-3"><i class="fa-solid fa-scroll me-2" aria-hidden="true"></i>About this Project</h2>
                 <p class="mb-2"><strong>Submitted By:</strong> Hardik Khandelwal <span class="text-muted">(Roll No: IPM05151)</span></p>
@@ -99,6 +135,24 @@
                   This is a student project that introduces basic Ayurvedic ideas through a simple, responsive website.
                   It is purely educational—to promote reflection and safe self-care—not to diagnose, treat, or replace professional advice.
                 </p>
+
+                <!-- Social / profile links -->
+                <div class="d-flex flex-wrap gap-2 mt-3 share-btns">
+                  <a class="btn btn-ayu-outline btn-sm" target="_blank" rel="noopener"
+                     href="https://wa.me/?text=Know%20Your%20Dosha%20%E2%80%94%20About%3A%20https%3A%2F%2Fexample.com%2Fabout.html"
+                     aria-label="Share on WhatsApp"><i class="fa-brands fa-whatsapp me-2" aria-hidden="true"></i>WhatsApp</a>
+                  <a class="btn btn-ayu-outline btn-sm" target="_blank" rel="noopener"
+                     href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fexample.com%2Fabout.html"
+                     aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin me-2" aria-hidden="true"></i>Share</a>
+                  <a class="btn btn-ayu-outline btn-sm" href="https://www.linkedin.com/in/hardik-khandelwal-boss/" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-linkedin me-2" aria-hidden="true"></i>LinkedIn Profile
+                  </a>
+                  <button id="share-native" class="btn btn-outline-secondary btn-sm" type="button">
+                    <i class="fa-solid fa-share-from-square me-2" aria-hidden="true"></i>Native Share
+                  </button>
+                </div>
+                <p id="share-announce" class="visually-hidden" aria-live="polite"></p>
+
                 <div class="alert alert-warning small mt-3 mb-0" role="alert">
                   <i class="fa-solid fa-triangle-exclamation me-2" aria-hidden="true"></i>
                   Educational use only. Do not rely on this site for medical decisions.
@@ -138,32 +192,51 @@
                   </div>
 
                   <div class="d-flex align-items-center gap-2">
-                    <button type="submit" class="btn btn-dark">
-                      <i class="fa-solid fa-paper-plane me-1" aria-hidden="true"></i>Send
-                    </button>
-                    <a class="btn btn-outline-secondary" href="mailto:ipm05hardikkh@iimrohtak.ac.in">
-                      <i class="fa-solid fa-at me-1" aria-hidden="true"></i>Email directly
-                    </a>
+                    <button type="submit" class="btn btn-ayu">Send</button>
+                    <a class="btn btn-ayu-outline" href="mailto:ipm05hardikkh@iimrohtak.ac.in">Email directly</a>
                   </div>
+
                   <p class="form-note text-muted mt-2 mb-0">
                     By contacting, you agree not to include private health information. Messages are handled via your email provider.
                   </p>
+                  <p id="contact-announce" class="visually-hidden" aria-live="polite"></p>
                 </form>
               </div>
             </div>
           </div>
         </div> <!-- /row -->
 
-        <!-- Credits / Attributions -->
+        <!-- Map & location -->
         <div class="row g-4 mt-1">
-          <div class="col-12">
+          <div class="col-lg-7">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h3 class="h5 mb-3"><i class="fa-solid fa-map-location-dot me-2" aria-hidden="true"></i>Location</h3>
+                <p class="mb-2">IIM Rohtak campus, Rohtak, Haryana, India.</p>
+                <div class="ratio ratio-16x9">
+                  <iframe
+                    title="Map: IIM Rohtak, Haryana"
+                    aria-label="Google Map showing the IIM Rohtak campus location"
+                    src="https://www.google.com/maps?q=IIM%20Rohtak&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <p class="small text-muted mt-2">Map is for reference only.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Credits / Attributions -->
+          <div class="col-lg-5">
             <div class="card shadow-sm">
               <div class="card-body">
                 <h3 class="h5 mb-3"><i class="fa-solid fa-circle-info me-2" aria-hidden="true"></i>Credits & Notes</h3>
                 <ul class="mb-0">
                   <li>Built with Bootstrap 5 and Font Awesome. Icons and styles are used under their respective licenses.</li>
                   <li>No tracking cookies or analytics are required to view this page.</li>
-                  <li>Accessibility basics: skip link, semantic headings, proper labels, and visible focus states.</li>
+                  <li>Accessibility basics: skip link, semantic headings, proper labels, visible focus states, and ARIA live regions.</li>
                 </ul>
               </div>
             </div>
@@ -183,6 +256,9 @@
         </div>
         <div class="col-md-6 text-md-end">
           <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1" aria-hidden="true"></i>FAQs</a>
+          <a class="me-3" href="sitemap.xml"><i class="fa-solid fa-sitemap me-1" aria-hidden="true"></i>Sitemap</a>
+          <a class="me-3" href="robots.txt"><i class="fa-solid fa-robot me-1" aria-hidden="true"></i>Robots</a>
+          <a class="me-3" href=".well-known/security.txt"><i class="fa-solid fa-shield-halved me-1" aria-hidden="true"></i>Security.txt</a>
           <a href="about.html"><i class="fa-solid fa-envelope me-1" aria-hidden="true"></i>Contact</a>
         </div>
       </div>
@@ -216,7 +292,8 @@
         "@type": "Person",
         "name": "Hardik Khandelwal",
         "email": "mailto:ipm05hardikkh@iimrohtak.ac.in",
-        "affiliation": { "@type": "CollegeOrUniversity", "name": "IIM Rohtak" }
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "IIM Rohtak" },
+        "sameAs": ["https://www.linkedin.com/in/hardik-khandelwal-boss/"]
       }
     ]
   }
@@ -227,11 +304,29 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
+    defer
   ></script>
 
   <!-- Page JS -->
   <script>
-    // Bootstrap-style validation + mailto submit
+    // Native share (with clipboard fallback)
+    (function(){
+      const btn = document.getElementById('share-native');
+      const announce = document.getElementById('share-announce');
+      btn?.addEventListener('click', function(){
+        const url = location.href;
+        const text = "Know Your Dosha — About this student project.";
+        if (navigator.share) {
+          navigator.share({title: document.title, text, url}).catch(()=>{});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(()=> announce.textContent = "Link copied to clipboard.");
+        } else {
+          announce.textContent = "Sharing not supported on this device.";
+        }
+      });
+    })();
+
+    // Validation + mailto submit + last updated
     (function () {
       const form = document.getElementById('contact-form');
       const last = document.getElementById('last-updated');
@@ -266,11 +361,14 @@
 
         // Open default mail client
         window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+
+        const a = document.getElementById('contact-announce');
+        if (a) a.textContent = 'Opening your email app to send the message.';
       }, false);
     })();
   </script>
 
-  <!-- Your JS (optional) -->
-  <script src="assets/js/script.js"></script>
+  <!-- Base JS (optional) -->
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>

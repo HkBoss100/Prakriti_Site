@@ -4,8 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Assessment — Prakriti & Vikriti • Know Your Dosha</title>
+  <meta name="description" content="Answer 12 quick questions to estimate your Ayurvedic dosha mix. Accessible, mobile-friendly, and privacy-respecting (saved locally only)." />
+  <link rel="canonical" href="https://example.com/test.html" />
 
   <link rel="icon" href="favicon.ico" />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preload" as="image"
+        href="assets/img/assessment-hero.webp"
+        imagesrcset="assets/img/assessment-hero.webp 1x, assets/img/assessment-hero@2x.webp 2x"
+        imagesizes="(min-width: 992px) 520px, 88vw" />
 
   <!-- Bootstrap CSS -->
   <link
@@ -28,7 +38,7 @@
 
   <style>
     .nav-link i{margin-right:.4rem}
-    /* Make sure custom buttons are readable regardless of theme defaults */
+    /* Ensure custom buttons are readable regardless of theme defaults */
     .btn-ayu { color:#fff !important; }
     .btn-ayu-outline,
     .btn-outline-secondary,
@@ -44,18 +54,25 @@
       color:var(--text, #111) !important;
       border-color:var(--border, #d6d6d6);
     }
+    .badge-ayu{background:var(--brand-brown,#8a4b2d);color:#fff}
+    .card-ayu img{border-radius:12px}
+    .visually-hidden-focusable:active,.visually-hidden-focusable:focus{
+      position:static !important;width:auto;height:auto;margin:0;overflow:visible;clip:auto;
+      white-space:normal;padding:.5rem 1rem;border:1px solid var(--border,#ddd);background:#fff
+    }
+    .q-hint{font-size:.9rem;color:#6c757d}
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
   <!-- Skip link -->
-  <a class="skip-link btn btn-sm btn-outline-secondary ms-2 mt-2" href="#main">Skip to main content</a>
+  <a class="visually-hidden visually-hidden-focusable position-absolute m-2" href="#main">Skip to main content</a>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Primary">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="index.html">
-        <i class="fa-solid fa-sun me-2"></i>Know Your Dosha
+        <i class="fa-solid fa-sun me-2" aria-hidden="true"></i>Know Your Dosha
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -65,13 +82,13 @@
 
       <div id="mainNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun"></i>Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle"></i>About Ayurveda</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="test.html"><i class="fa-solid fa-scroll"></i>Take the Assessment</a></li>
-          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling"></i>Lifestyle</a></li>
-          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf"></i>Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om"></i>FAQs</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja"></i>About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun" aria-hidden="true"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle" aria-hidden="true"></i>About Ayurveda</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="test.html"><i class="fa-solid fa-scroll" aria-hidden="true"></i>Take the Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling" aria-hidden="true"></i>Lifestyle</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf" aria-hidden="true"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om" aria-hidden="true"></i>FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja" aria-hidden="true"></i>About</a></li>
         </ul>
       </div>
     </div>
@@ -80,33 +97,85 @@
   <!-- PAGE HEADER -->
   <header class="py-5 hero-ayu border-bottom">
     <div class="container">
-      <span class="badge rounded-pill badge-ayu mb-3">
-        <i class="fa-solid fa-scroll me-1"></i> Dosha Assessment
-      </span>
-      <h1 class="display-6 mb-1" style="color:var(--brand-brown);">Prakriti &amp; Vikriti</h1>
-      <p class="text-muted mb-0">Select the option that fits you best for each question.</p>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <span class="badge rounded-pill badge-ayu mb-3">
+            <i class="fa-solid fa-scroll me-1" aria-hidden="true"></i> Dosha Assessment
+          </span>
+          <h1 class="display-6 mb-2" style="color:var(--brand-brown);">Prakriti &amp; Vikriti</h1>
+          <p class="text-muted mb-0">Select the option that fits you best for each question.</p>
+        </div>
+        <div class="col-lg-5 text-center">
+          <picture>
+            <img src="assets/img/think.webp" class="img-fluid rounded-3 border"
+                 alt="Calm assessment scene" width="520" height="360"
+                 loading="eager" decoding="async" />
+          </picture>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- MAIN -->
   <main id="main" class="flex-grow-1">
+    <!-- Tips + Progress -->
+    <section class="py-4 border-bottom">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <div class="card card-ayu h-100">
+              <div class="card-body">
+                <h2 class="h6 mb-2"><i class="fa-solid fa-lightbulb me-2" aria-hidden="true"></i>How to answer</h2>
+                <ul class="mb-2 q-hint">
+                  <li><strong>Prakriti</strong>: your baseline/most of your life. <strong>Vikriti</strong>: how you are <em>now</em>.</li>
+                  <li>Pick the <em>closest</em> option; don’t overthink.</li>
+                  <li>You can retake anytime. Results are stored only in your browser (localStorage).</li>
+                </ul>
+                <div class="small text-muted">Educational only — not medical advice.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="card card-ayu h-100">
+              <div class="card-body">
+                <h2 class="h6 mb-3"><i class="fa-solid fa-chart-column me-2" aria-hidden="true"></i>Progress</h2>
+                <div class="progress" role="progressbar" aria-label="Questions answered"
+                     aria-valuemin="0" aria-valuemax="12" aria-valuenow="0">
+                  <div id="progressBar" class="progress-bar" style="width:0%"></div>
+                </div>
+                <p class="mt-2 mb-0 small"><span id="progressText">0</span>/12 answered</p>
+                <p id="progressAnnounce" class="visually-hidden" aria-live="polite"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="py-5">
       <div class="container">
+        <!-- Validation summary -->
+        <div id="errorSummary" class="alert alert-danger d-none" role="alert" aria-live="assertive"></div>
+
         <form id="dosha-form" class="card card-ayu p-4" novalidate>
           <!-- Mode -->
           <div class="row g-3 align-items-end mb-3">
             <div class="col-sm-6">
               <label for="mode" class="form-label"><strong>Assessment mode</strong></label>
-              <select id="mode" name="mode" class="form-select">
+              <select id="mode" name="mode" class="form-select" aria-describedby="modeHelp">
                 <option value="prakriti">Prakriti (your baseline)</option>
                 <option value="vikriti">Vikriti (how you are now)</option>
               </select>
+              <div id="modeHelp" class="form-text">Choose whether you’re answering for your baseline or current state.</div>
+            </div>
+            <div class="col-sm-6">
             </div>
           </div>
 
           <!-- Q1 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">1) Body frame</legend>
+            <p class="q-hint">Think about your natural build over years.</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q1_vata" name="q1" value="vata" required>
               <label class="form-check-label" for="q1_vata">Thin, light, finds it hard to gain</label>
@@ -124,6 +193,7 @@
           <!-- Q2 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">2) Skin &amp; hair</legend>
+            <p class="q-hint">What’s most typical for you without products?</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q2_vata" name="q2" value="vata" required>
               <label class="form-check-label" for="q2_vata">Dry skin/hair, cool to touch</label>
@@ -141,6 +211,7 @@
           <!-- Q3 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">3) Appetite &amp; digestion</legend>
+            <p class="q-hint">Think about most days, not special occasions.</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q3_vata" name="q3" value="vata" required>
               <label class="form-check-label" for="q3_vata">Variable appetite, gas/bloating</label>
@@ -158,6 +229,7 @@
           <!-- Q4 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">4) Sleep</legend>
+            <p class="q-hint">How does your sleep feel most of the time?</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q4_vata" name="q4" value="vata" required>
               <label class="form-check-label" for="q4_vata">Light/irregular, wakes easily</label>
@@ -175,6 +247,7 @@
           <!-- Q5 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">5) Temperature tolerance</legend>
+            <p class="q-hint">Which weather conditions bother you more?</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q5_vata" name="q5" value="vata" required>
               <label class="form-check-label" for="q5_vata">Dislikes cold/wind</label>
@@ -192,6 +265,7 @@
           <!-- Q6 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">6) Energy patterns</legend>
+            <p class="q-hint">What’s your usual rhythm through the day?</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q6_vata" name="q6" value="vata" required>
               <label class="form-check-label" for="q6_vata">Burst of energy, then fatigue</label>
@@ -209,6 +283,7 @@
           <!-- Q7 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">7) Mind &amp; mood</legend>
+            <p class="q-hint">Your general pattern across weeks.</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q7_vata" name="q7" value="vata" required>
               <label class="form-check-label" for="q7_vata">Fast thinker, worry/anxiety</label>
@@ -226,6 +301,7 @@
           <!-- Q8 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">8) Bowel habits</legend>
+            <p class="q-hint">Typical trend over time.</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q8_vata" name="q8" value="vata" required>
               <label class="form-check-label" for="q8_vata">Dry/constipated, irregular</label>
@@ -243,6 +319,7 @@
           <!-- Q9 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">9) Weight tendency</legend>
+            <p class="q-hint">What tends to happen without special effort?</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q9_vata" name="q9" value="vata" required>
               <label class="form-check-label" for="q9_vata">Stays light/underweight</label>
@@ -260,6 +337,7 @@
           <!-- Q10 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">10) Hair &amp; scalp</legend>
+            <p class="q-hint">What appears most often for you?</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q10_vata" name="q10" value="vata" required>
               <label class="form-check-label" for="q10_vata">Dry, frizzy, dandruff-prone</label>
@@ -277,6 +355,7 @@
           <!-- Q11 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">11) Voice &amp; speech</legend>
+            <p class="q-hint">Your usual pattern when speaking.</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q11_vata" name="q11" value="vata" required>
               <label class="form-check-label" for="q11_vata">Fast, variable, sometimes shaky</label>
@@ -294,6 +373,7 @@
           <!-- Q12 -->
           <fieldset class="mb-4">
             <legend class="h6 mb-2">12) Food cravings</legend>
+            <p class="q-hint">What do you reach for most often?</p>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="q12_vata" name="q12" value="vata" required>
               <label class="form-check-label" for="q12_vata">Dry/light (crackers, popcorn)</label>
@@ -309,15 +389,37 @@
           </fieldset>
 
           <!-- Actions -->
-          <div class="d-flex gap-2">
+          <div class="d-flex flex-wrap gap-2">
             <button class="btn btn-ayu" type="submit">
-              <i class="fa-solid fa-clipboard-check me-2"></i>See My Results
+              <i class="fa-solid fa-clipboard-check me-2" aria-hidden="true"></i>See My Results
             </button>
             <a class="btn btn-ayu-outline" href="index.html">
-              <i class="fa-solid fa-arrow-left me-2"></i>Cancel
+              <i class="fa-solid fa-arrow-left me-2" aria-hidden="true"></i>Cancel
             </a>
+            <button class="btn btn-outline-secondary" type="button" id="resetQuiz">
+              <i class="fa-solid fa-rotate-left me-2" aria-hidden="true"></i>Clear Answers
+            </button>
           </div>
         </form>
+
+        <!-- Privacy note + image -->
+        <div class="row g-4 align-items-center mt-4">
+          <div class="col-lg-7">
+            <div class="alert alert-info mb-0" role="note">
+              <i class="fa-solid fa-lock me-2" aria-hidden="true"></i>
+              Your result is saved locally in your browser (localStorage) for personalization. No account, no server storage.
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <picture>
+              <source srcset="assets/img/privacy-local.webp" type="image/webp">
+              <img src="assets/img/privacy-local.png" class="img-fluid rounded-3 border"
+                   alt="Local storage privacy illustration"
+                   width="520" height="240" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -336,8 +438,11 @@
           <span class="text-muted">For educational purposes only — not medical advice.</span>
         </div>
         <div class="col-md-6 text-md-end">
-          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1"></i>FAQs</a>
-          <a href="about.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a>
+          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1" aria-hidden="true"></i>FAQs</a>
+          <a class="me-3" href="about.html"><i class="fa-solid fa-envelope me-1" aria-hidden="true"></i>Contact</a>
+          <a class="me-3" href="sitemap.xml"><i class="fa-solid fa-sitemap me-1" aria-hidden="true"></i>Sitemap</a>
+          <a class="me-3" href="robots.txt"><i class="fa-solid fa-robot me-1" aria-hidden="true"></i>Robots</a>
+          <a href=".well-known/security.txt"><i class="fa-solid fa-shield-halved me-1" aria-hidden="true"></i>Security.txt</a>
         </div>
       </div>
       <div class="text-center text-muted mt-2">© 2025 Know Your Dosha</div>
@@ -349,33 +454,80 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
+    defer
   ></script>
 
-  <!-- Tie-aware quiz logic (stores scores + mode) -->
+  <!-- Quiz logic: progression + validation + tie-aware result storing -->
   <script>
     (function () {
       const form = document.getElementById('dosha-form');
-      if (!form) return;
+      const errorSummary = document.getElementById('errorSummary');
+      const progressBar = document.getElementById('progressBar');
+      const progressText = document.getElementById('progressText');
+      const progressAnnounce = document.getElementById('progressAnnounce');
+      const resetBtn = document.getElementById('resetQuiz');
+
+      // Count answers and update progress
+      function updateProgress() {
+        const total = 12;
+        let answered = 0;
+        for (let i=1;i<=12;i++){
+          const checked = form.querySelector(`input[name="q${i}"]:checked`);
+          if (checked) answered++;
+        }
+        const pct = Math.round((answered/total)*100);
+        progressBar.style.width = pct + '%';
+        progressBar.parentElement.setAttribute('aria-valuenow', answered);
+        progressText.textContent = answered.toString();
+        progressAnnounce.textContent = `You have answered ${answered} of 12 questions.`;
+      }
+
+      // Live progress updates
+      form.addEventListener('change', (e) => {
+        if (e.target.matches('input[type="radio"]')) updateProgress();
+      });
+
+      // Clear form
+      resetBtn.addEventListener('click', () => {
+        form.reset();
+        updateProgress();
+        errorSummary.classList.add('d-none');
+        errorSummary.innerHTML = '';
+      });
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        if (!form.checkValidity()) {
+        // Manual validation summary (accessible)
+        const missing = [];
+        for (let i=1;i<=12;i++){
+          const group = form.querySelectorAll(`input[name="q${i}"]`);
+          const anyChecked = Array.from(group).some(r => r.checked);
+          if (!anyChecked) missing.push(i);
+        }
+        if (missing.length) {
+          errorSummary.classList.remove('d-none');
+          const items = missing.map(n => `<li>Question ${n}</li>`).join('');
+          errorSummary.innerHTML = `<strong>Please answer the following before continuing:</strong><ul class="mb-0">${items}</ul>`;
+          // focus first missing
+          const first = form.querySelector(`input[name="q${missing[0]}"]`);
+          first && first.focus();
           form.classList.add('was-validated');
           return;
         }
 
+        // Compute scores
         const fd = new FormData(form);
         const scores = { vata: 0, pitta: 0, kapha: 0 };
 
-        for (const v of fd.values()) {
-          if (v in scores) scores[v]++; // ignores 'mode'
+        for (const [key, val] of fd.entries()) {
+          if (val in scores) scores[val]++; // ignores 'mode'
         }
 
+        // Tie-aware dominant
         const ORDER = ['vata','pitta','kapha'];
         const arr = Object.entries(scores)
           .sort((a,b) => (b[1]-a[1]) || (ORDER.indexOf(a[0]) - ORDER.indexOf(b[0])));
-
         const [a,b,c] = arr;
         let dominant = a[0];
 
@@ -393,6 +545,9 @@
 
         location.href = 'result.html';
       });
+
+      // Initialize progress on load
+      updateProgress();
     })();
   </script>
 </body>

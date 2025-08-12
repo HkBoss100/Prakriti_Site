@@ -1,91 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Dosha Result | Know Your Dosha</title>
+  <title>Your Dosha Result • Know Your Dosha</title>
+
+  <!-- SEO -->
   <meta name="description" content="See your dosha result and next steps. Educational only—no medical advice." />
-  <link rel="canonical" href="https://example.com/result.html" />
+  <!-- Replace with your live URL -->
+  <link rel="canonical" href="https://yourusername.github.io/Prakriti_Site/result.html" />
   <meta name="robots" content="index,follow" />
 
   <!-- Social -->
-  <meta property="og:title" content="Your Dosha Result" />
+  <meta property="og:title" content="Your Dosha Result • Know Your Dosha" />
   <meta property="og:description" content="See your dosha result and safe, educational next steps." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://example.com/result.html" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://yourusername.github.io/Prakriti_Site/result.html" />
+  <meta property="og:image" content="https://yourusername.github.io/Prakriti_Site/images/result/hero-result.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Icons / CSS -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ3YVvM8rAbU..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" />
 
+  <!-- Performance: preconnect CDNs -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        referrerpolicy="no-referrer" />
+
+  <!-- Site CSS (style first, theme last) -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/theme.css" />
+
   <style>
-    /* Page-specific light styles (move to your CSS bundle if you prefer) */
-    .result-wrap { display:grid; gap:1.25rem; }
-    .result-card { border:1px solid var(--border, #e6e6e6); border-radius:16px; padding:1.25rem; background:#fff; box-shadow:var(--elev-1, 0 1px 2px rgba(0,0,0,.06)); }
-    .result-title { display:flex; align-items:center; gap:.6rem; margin:0 0 .25rem; font-size:clamp(1.35rem, 1.2rem + 1vw, 1.9rem); }
-    .dosha-badge { font-size:.85rem; border:1px solid currentColor; border-radius:999px; padding:.15rem .6rem; }
-    .muted { color:var(--muted, #666); }
-    .result-grid { display:grid; gap:1rem; grid-template-columns: 1fr; }
-    @media (min-width: 800px){ .result-grid { grid-template-columns: 2fr 1fr; } }
-    .meters { display:grid; gap:.5rem; }
-    .meter { background:#f3f3f3; border-radius:8px; overflow:hidden; }
-    .meter > div { height:10px; width:0; background:var(--accent, #222); transition:width .6s ease; }
-    .meter-label { display:flex; justify-content:space-between; font-size:.9rem; }
-    .actions { display:flex; flex-wrap:wrap; gap:.6rem; }
-    .btn { display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; padding:.6rem .9rem; border-radius:10px; border:1px solid var(--border, #e6e6e6); }
-    .btn-primary { background:var(--accent, #111); color:#fff; border-color:var(--accent, #111); }
-    .btn-secondary { background:#fff; }
-    .btn-ghost { background:transparent; }
-    .note { font-size:.9rem; }
-    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .nav-link i{margin-right:.4rem}
+    .result-figure figcaption{font-size:.9rem;color:#6c757d}
+    .meter{background:#f3f3f3;border-radius:8px;overflow:hidden}
+    .meter > div{height:10px;width:0;background:var(--accent,#222);transition:width .6s ease}
+    .meter-label{display:flex;justify-content:space-between;font-size:.9rem}
+    .dosha-badge{font-size:.85rem;border:1px solid currentColor;border-radius:999px;padding:.15rem .6rem}
+    .share-btns a{text-decoration:none}
   </style>
 </head>
-<body>
-  <a class="sr-only" href="#main">Skip to main content</a>
+<body class="d-flex flex-column min-vh-100">
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">Know Your Dosha</a>
-      <nav aria-label="Primary">
-        <ul class="nav">
-          <li><a href="index.html"><i class="fas fa-sun" aria-hidden="true"></i> Home</a></li>
-          <li><a href="about-ayurveda.html"><i class="fas fa-mortar-pestle" aria-hidden="true"></i> About Ayurveda</a></li>
-          <li><a href="test.html"><i class="fas fa-scroll" aria-hidden="true"></i> Take the Assessment</a></li>
-          <li><a href="lifestyle.html"><i class="fas fa-seedling" aria-hidden="true"></i> Lifestyle</a></li>
-          <li><a href="products.html"><i class="fas fa-leaf" aria-hidden="true"></i> Products</a></li>
-          <li><a href="faq.html"><i class="fas fa-om" aria-hidden="true"></i> FAQs</a></li>
-          <li><a href="about.html"><i class="fas fa-user-ninja" aria-hidden="true"></i> About</a></li>
+  <!-- Skip link -->
+  <a class="skip-link btn btn-sm btn-outline-secondary ms-2 mt-2" href="#main">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Primary">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="index.html">
+        <i class="fa-solid fa-sun me-2"></i>Know Your Dosha
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle"></i>About Ayurveda</a></li>
+          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll"></i>Take the Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling"></i>Lifestyle</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om"></i>FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja"></i>About</a></li>
         </ul>
-      </nav>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO with relevant photo -->
+  <header class="py-5 hero-ayu border-bottom">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="badge rounded-pill badge-ayu mb-3"><i class="fa-solid fa-scroll me-1"></i> Your Result</span>
+          <h1 class="display-6 mb-1" style="color:var(--brand-brown);">Your Dosha Result</h1>
+          <p class="text-muted mb-0">A gentle, educational summary based on your answers. Not medical advice.</p>
+        </div>
+        <div class="col-lg-5">
+          <figure class="m-0 result-figure text-center">
+            <picture>
+              <img src="assets/img/balance.webp" class="img-fluid rounded-3 border"
+                   width="560" height="360" loading="lazy"
+                   sizes="(max-width: 992px) 100vw, 560px"
+                   alt="Illustration of the three Ayurvedic doshas forming a balanced circle">
+            </picture>
+            <figcaption>Prakriti &amp; Vikriti viewed as a dynamic balance.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main id="main" class="container">
-    <h1>Your Dosha Result</h1>
+  <!-- MAIN -->
+  <main id="main" class="flex-grow-1">
+    <!-- Result card -->
+    <section class="py-5">
+      <div class="container">
+        <section class="card card-ayu p-4" aria-live="polite" aria-atomic="true">
+          <div class="row g-4">
+            <div class="col-lg-7">
+              <h2 id="result-title" class="h3 mb-2">
+                <span id="dosha-emoji" aria-hidden="true" class="me-1">✨</span>
+                <span id="dosha-text">Loading…</span>
+                <span id="dosha-badge" class="dosha-badge text-muted ms-2"></span>
+              </h2>
+              <p id="result-sub" class="text-muted">Based on your responses in the assessment.</p>
 
-    <div class="result-wrap">
-      <section class="result-card" aria-live="polite" aria-atomic="true">
-        <h2 id="result-title" class="result-title">
-          <span id="dosha-emoji" aria-hidden="true">✨</span>
-          <span id="dosha-text">Loading…</span>
-          <span id="dosha-badge" class="dosha-badge muted"></span>
-        </h2>
-        <p id="result-sub" class="muted">Based on your responses in the assessment.</p>
-
-        <div class="result-grid">
-          <div>
-            <div id="meters-wrap" hidden>
-              <h3 class="tiny-title">Your mix (if available)</h3>
-              <div class="meters">
-                <div>
+              <!-- Optional meters -->
+              <div id="meters-wrap" hidden>
+                <h3 class="h6 mb-2"><i class="fa-solid fa-chart-simple me-2"></i>Your mix (if available)</h3>
+                <div class="mb-3">
                   <div class="meter-label"><span>Vata</span><span id="vata-val">0%</span></div>
                   <div class="meter"><div id="vata-bar" style="--accent:#6b5b95"></div></div>
                 </div>
-                <div>
+                <div class="mb-3">
                   <div class="meter-label"><span>Pitta</span><span id="pitta-val">0%</span></div>
                   <div class="meter"><div id="pitta-bar" style="--accent:#c94c4c"></div></div>
                 </div>
@@ -94,38 +133,200 @@
                   <div class="meter"><div id="kapha-bar" style="--accent:#2e8b57"></div></div>
                 </div>
               </div>
+
+              <!-- Actions -->
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <a id="go-lifestyle" class="btn btn-ayu" href="lifestyle.html">
+                  <i class="fa-solid fa-seedling me-2" aria-hidden="true"></i>See Recommended Lifestyle
+                </a>
+                <a id="go-products" class="btn btn-ayu-outline" href="products.html">
+                  <i class="fa-solid fa-leaf me-2" aria-hidden="true"></i>Optional Products
+                </a>
+                <a class="btn btn-ayu-outline" href="test.html">
+                  <i class="fa-solid fa-rotate-right me-2" aria-hidden="true"></i>Retake Quiz
+                </a>
+              </div>
             </div>
 
-            <div class="actions" style="margin-top:1rem;">
-              <a id="go-lifestyle" class="btn btn-primary" href="lifestyle.html"><i class="fas fa-seedling" aria-hidden="true"></i> See Recommended Lifestyle</a>
-              <a id="go-products" class="btn btn-secondary" href="products.html"><i class="fas fa-leaf" aria-hidden="true"></i> Optional Products</a>
-              <a class="btn btn-secondary" href="test.html"><i class="fas fa-rotate-right" aria-hidden="true"></i> Retake Quiz</a>
+            <!-- Side card: what's next -->
+            <aside class="col-lg-5">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h3 class="h5">What’s next?</h3>
+                  <ul class="mb-3">
+                    <li>Explore lifestyle tips tailored to your result.</li>
+                    <li>Browse gentle, optional over-the-counter ideas (educational only).</li>
+                    <li>Retake or tweak answers if you think you mis-clicked.</li>
+                  </ul>
+                  <div class="d-flex flex-wrap gap-2">
+                    <button id="share-btn" class="btn btn-ayu-outline" type="button">
+                      <i class="fa-solid fa-share-nodes me-2" aria-hidden="true"></i>Share
+                    </button>
+                    <button id="print-btn" class="btn btn-ayu-outline" type="button">
+                      <i class="fa-solid fa-print me-2" aria-hidden="true"></i>Print
+                    </button>
+                    <button id="reset-btn" class="btn btn-ayu-outline" type="button">
+                      <i class="fa-solid fa-trash me-2" aria-hidden="true"></i>Reset
+                    </button>
+                  </div>
+
+                  <!-- Small figure -->
+                  <figure class="result-figure mt-3 mb-0">
+                    <picture>
+                      <img src="assets/img/checklist.webp" class="img-fluid rounded-3 border"
+                           width="200" height="170" loading="lazy"
+                           sizes="(max-width: 992px) 100vw, 480px"
+                           alt="Notebook with a simple daily routine checklist and herbal tea">
+                    </picture>
+                    <figcaption class="mt-2">Small, steady changes are usually best.</figcaption>
+                  </figure>
+
+                  <p id="announce" class="visually-hidden" aria-live="polite"></p>
+                  <p class="small text-muted mt-3">Educational use only—<strong>not</strong> medical advice.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Understanding your result (extra content + images) -->
+    <section class="py-5 section-soft border-top">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="card card-ayu h-100">
+              <div class="card-body">
+                <h3 class="h6"><i class="fa-solid fa-feather-pointed me-2"></i>If Vata is high</h3>
+                <p class="mb-0">Favor warmth, routine, and nourishing foods. Slow down; keep regular sleep times.</p>
+              </div>
             </div>
           </div>
-
-          <aside class="result-card">
-            <h3 style="margin-top:0;">What’s next?</h3>
-            <ul>
-              <li>Explore lifestyle tips tailored to your result.</li>
-              <li>Browse gentle, optional over-the-counter ideas (educational only).</li>
-              <li>Retake or tweak answers if you think you mis-clicked.</li>
-            </ul>
-            <div class="actions">
-              <button id="share-btn" class="btn btn-ghost" type="button"><i class="fas fa-share-alt" aria-hidden="true"></i> Share</button>
-              <button id="print-btn" class="btn btn-ghost" type="button"><i class="fas fa-print" aria-hidden="true"></i> Print</button>
-              <button id="reset-btn" class="btn btn-ghost" type="button"><i class="fas fa-trash" aria-hidden="true"></i> Reset</button>
+          <div class="col-lg-4">
+            <div class="card card-ayu h-100">
+              <div class="card-body">
+                <h3 class="h6"><i class="fa-solid fa-fire-flame-simple me-2"></i>If Pitta is high</h3>
+                <p class="mb-0">Favor cooling foods, breaks, and kind self-talk. Avoid overheating and late-night work.</p>
+              </div>
             </div>
-            <p id="announce" class="sr-only" aria-live="polite"></p>
-            <p class="note muted" style="margin-top:.75rem;">Educational use only—<strong>not</strong> medical advice.</p>
-          </aside>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-ayu h-100">
+              <div class="card-body">
+                <h3 class="h6"><i class="fa-solid fa-mountain-sun me-2"></i>If Kapha is high</h3>
+                <p class="mb-0">Favor light, warm meals and regular movement. Get up early and keep variety in your day.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+        <p class="small text-muted mt-3 mb-0">These tips are educational and general; listen to your body and consult a professional for medical concerns.</p>
+      </div>
+    </section>
+
+    <!-- Email me my result (accessible form & validation) -->
+    <section class="py-5 border-top">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <h2 class="h4 mb-2" style="color:var(--brand-brown);"><i class="fa-solid fa-envelope-open-text me-2"></i>Email me my result</h2>
+            <p class="text-muted">We’ll send a simple summary. No spam. (Demo only—no actual email is sent.)</p>
+
+            <form class="needs-validation" novalidate aria-describedby="emailHelp">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input id="email" name="email" type="email" class="form-control" required
+                       inputmode="email" autocomplete="email" aria-describedby="emailHelpBlock">
+                <div id="emailHelpBlock" class="form-text">Use a personal email you check often.</div>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="mb-3">
+                <label for="notes" class="form-label">Notes (optional)</label>
+                <textarea id="notes" name="notes" rows="3" class="form-control" aria-describedby="notesHelp"></textarea>
+                <div id="notesHelp" class="form-text">Avoid personal medical details.</div>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-ayu" type="submit">
+                  <i class="fa-solid fa-paper-plane me-2"></i>Send
+                </button>
+                <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                   href="https://www.linkedin.com/in/hardik-khandelwal-boss/">
+                  <i class="fa-brands fa-linkedin me-2"></i>LinkedIn
+                </a>
+              </div>
+              <div class="visually-hidden" aria-live="polite" id="email-status"></div>
+            </form>
+          </div>
+          <div class="col-lg-6">
+            <figure class="result-figure m-0 text-center">
+              <figcaption class="mt-2">Keep a copy so you can revisit tips anytime.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social sharing links (in addition to native Share button) -->
+    <section class="py-5 section-soft border-top">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <h2 class="h5 mb-2" style="color:var(--brand-brown);"><i class="fa-solid fa-share-nodes me-2"></i>Share this page</h2>
+            <div class="d-flex flex-wrap gap-2 share-btns">
+              <!-- Replace URL with your live URL -->
+              <a class="btn btn-ayu" target="_blank" rel="noopener"
+                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyourusername.github.io%2FPrakriti_Site%2Fresult.html">
+                <i class="fa-brands fa-facebook-f me-2"></i>Facebook
+              </a>
+              <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                 href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fyourusername.github.io%2FPrakriti_Site%2Fresult.html&text=My%20dosha%20result%20on%20Know%20Your%20Dosha">
+                <i class="fa-brands fa-x-twitter me-2"></i>Post on X
+              </a>
+              <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                 href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fyourusername.github.io%2FPrakriti_Site%2Fresult.html">
+                <i class="fa-brands fa-linkedin-in me-2"></i>LinkedIn
+              </a>
+              <a class="btn btn-ayu-outline" target="_blank" rel="noopener"
+                 href="https://wa.me/?text=Check%20out%20my%20dosha%20result%3A%20https%3A%2F%2Fyourusername.github.io%2FPrakriti_Site%2Fresult.html">
+                <i class="fa-brands fa-whatsapp me-2"></i>WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <figure class="result-figure m-0 text-center">
+              <figcaption class="mt-2">Sharing spreads awareness—gently and responsibly.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to top -->
+    <div class="container my-4">
+      <div class="text-end">
+        <a href="#top" class="btn btn-ayu-outline btn-sm"><i class="fa-solid fa-arrow-up me-1"></i>Back to top</a>
+      </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>Educational use only. Not medical advice. © 2025 Know Your Dosha</p>
+  <!-- FOOTER -->
+  <footer class="mt-auto py-4 border-top">
+    <div class="container small">
+      <div class="row gy-2 align-items-center">
+        <div class="col-md-6">
+          <span class="text-muted">For educational purposes only — not medical advice.</span>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a class="me-3" href="faq.html"><i class="fa-solid fa-circle-question me-1"></i>FAQs</a>
+          <a class="me-3" href="about.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a>
+          <a class="me-3" href="robots.txt" rel="nofollow">robots.txt</a>
+          <a href="sitemap.xml" rel="nofollow">sitemap.xml</a>
+        </div>
+      </div>
+      <div class="text-center text-muted mt-2">
+        © 2025 Know Your Dosha • <a class="link-primary" target="_blank" rel="noopener"
+        href="https://www.linkedin.com/in/hardik-khandelwal-boss/">LinkedIn</a>
+      </div>
     </div>
   </footer>
 
@@ -135,20 +336,27 @@
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
     "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://example.com/index.html"},
-      {"@type":"ListItem","position":2,"name":"Assessment","item":"https://example.com/test.html"},
-      {"@type":"ListItem","position":3,"name":"Result","item":"https://example.com/result.html"}
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://yourusername.github.io/Prakriti_Site/index.html"},
+      {"@type":"ListItem","position":2,"name":"Assessment","item":"https://yourusername.github.io/Prakriti_Site/test.html"},
+      {"@type":"ListItem","position":3,"name":"Result","item":"https://yourusername.github.io/Prakriti_Site/result.html"}
     ]
   }
   </script>
 
+  <noscript><div class="container small text-muted mt-3">Some features (personalized links, sharing) are limited without JavaScript.</div></noscript>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"></script>
+
+  <!-- Page logic -->
   <script>
     (function () {
       const out = document.getElementById('dosha-text');
       const badge = document.getElementById('dosha-badge');
       const emoji = document.getElementById('dosha-emoji');
       const sub = document.getElementById('result-sub');
-      const announcer = document.getElementById('announce');
 
       const goLifestyle = document.getElementById('go-lifestyle');
       const goProducts  = document.getElementById('go-products');
@@ -167,23 +375,21 @@
       const EMOJI = { vata:'💨', pitta:'🔥', kapha:'🌱', '':'✨' };
       const TITLE = { vata:'Vata', pitta:'Pitta', kapha:'Kapha', '':'Unknown' };
 
-      // Title text
       if (dosha) {
         out.textContent = `Your dominant dosha is ${TITLE[dosha]}.`;
         emoji.textContent = EMOJI[dosha];
         badge.textContent = 'Based on your assessment';
-        badge.classList.remove('muted');
+        badge.classList.remove('text-muted');
       } else {
         out.textContent = 'Result unavailable.';
         emoji.textContent = EMOJI[''];
         badge.textContent = 'Please take the assessment';
         sub.textContent = 'We could not find a saved result.';
-        // Point primary CTA to quiz if unknown
         goLifestyle.setAttribute('href','test.html');
-        goLifestyle.innerHTML = '<i class="fas fa-scroll" aria-hidden="true"></i> Take the Assessment';
+        goLifestyle.innerHTML = '<i class="fa-solid fa-scroll me-2" aria-hidden="true"></i>Take the Assessment';
       }
 
-      // Optional score bars (if you later store: localStorage.doshaScores = JSON.stringify({vata: X, pitta: Y, kapha: Z}))
+      // Optional score bars from localStorage.doshaScores
       try {
         const scores = JSON.parse(localStorage.getItem('doshaScores') || 'null');
         if (scores && typeof scores === 'object') {
@@ -197,16 +403,12 @@
             vVal.textContent = pv + '%'; pVal.textContent = pp + '%'; kVal.textContent = pk + '%';
             metersWrap.hidden = false;
 
-            // Tie hint (soft copy)
             const arr = [{k:'vata',v:pv},{k:'pitta',v:pp},{k:'kapha',v:pk}].sort((a,b)=>b.v-a.v);
-            if (arr[0].v === arr[1].v) {
-              sub.textContent = 'Looks like a near-tie—check lifestyle tips for both.';
-            }
+            if (arr[0].v === arr[1].v) sub.textContent = 'Looks like a near-tie—check lifestyle tips for both.';
           }
         }
       } catch(e){ /* ignore */ }
 
-      // Deep link CTAs with dosha param for gentle personalization on next pages (they can ignore if not used)
       if (dosha) {
         goLifestyle.href = `lifestyle.html?d=${encodeURIComponent(dosha)}`;
         goProducts.href = `products.html?d=${encodeURIComponent(dosha)}`;
@@ -216,21 +418,17 @@
       const shareBtn = document.getElementById('share-btn');
       const printBtn = document.getElementById('print-btn');
       const resetBtn = document.getElementById('reset-btn');
+      const announcer = document.getElementById('announce');
 
       shareBtn?.addEventListener('click', async () => {
         const text = dosha ? `My dominant dosha is ${TITLE[dosha]} on Know Your Dosha.` : 'Check your dosha on Know Your Dosha.';
+        const url = location.href;
         if (navigator.share) {
-          try {
-            await navigator.share({ title: 'Know Your Dosha', text, url: location.href });
-            announcer.textContent = 'Shared.';
-          } catch { /* user canceled */ }
+          try { await navigator.share({ title: 'Know Your Dosha', text, url }); announcer.textContent = 'Shared.'; }
+          catch { /* user canceled */ }
         } else {
-          try {
-            await navigator.clipboard.writeText(`${text} ${location.href}`);
-            announcer.textContent = 'Link copied to clipboard.';
-          } catch {
-            announcer.textContent = 'Copy not available on this device.';
-          }
+          try { await navigator.clipboard.writeText(`${text} ${url}`); announcer.textContent = 'Link copied to clipboard.'; }
+          catch { announcer.textContent = 'Copy not available on this device.'; }
         }
       });
 
@@ -241,6 +439,24 @@
         localStorage.removeItem('doshaScores');
         announcer.textContent = 'Saved result cleared.';
         setTimeout(()=>location.reload(), 250);
+      });
+    })();
+
+    // Accessible client-side validation (email me form)
+    (function () {
+      const forms = document.querySelectorAll('.needs-validation');
+      forms.forEach(form => {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          } else {
+            event.preventDefault(); // demo only
+            const status = document.getElementById('email-status');
+            if (status) status.textContent = 'Thanks! A summary would be sent to your email in a real deployment.';
+          }
+          form.classList.add('was-validated');
+        }, false);
       });
     })();
   </script>

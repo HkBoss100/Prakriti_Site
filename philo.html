@@ -26,28 +26,32 @@
     referrerpolicy="no-referrer"
   />
 
-  <!-- Site CSS (match design) -->
+  <!-- Site CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/theme.css" />
 
   <style>
-    /* small, page-specific tweaks */
-    .nav-link i{ margin-right:.4rem; }
-    .card-ayu { border-radius: 14px; }
-    .quote-mark { font-size: 2rem; line-height: 1; opacity:.25; }
+    .card-ayu { border-radius: 14px; position: relative; z-index: 1; }
     .soft { background: var(--soft, #faf7f2); }
     .badge-ayu { background: var(--brand-brown, #8a4b2d); color:#fff; }
-    /* hide content until token validated */
-    body[data-locked="1"] #faculty-content { display:none; }
-    body[data-locked="1"] #locked-msg { display:block; }
-    #locked-msg { display:none; }
+    .quote-mark { font-size: 2rem; line-height: 1; opacity:.25; }
+
+    /* Checklist helpers */
+    .checklist-section h2 { color: var(--brand-brown, #8a4b2d); }
+    .checklist-card { border-radius: 14px; }
+    .task-title { font-weight: 600; }
+    .task-help { font-size:.9rem; color:#6c757d; }
+    .status-select { max-width: 160px; }
+
+    /* Never let alerts overlap cards */
+    .alert { position: static !important; z-index: 0; }
   </style>
 </head>
-<body class="d-flex flex-column min-vh-100" data-locked="1">
-  <!-- minimal skip link -->
+<body class="d-flex flex-column min-vh-100">
+  <!-- Skip link -->
   <a class="visually-hidden-focusable position-absolute start-0 top-0 m-2 p-2 bg-white border rounded" href="#main">Skip to content</a>
 
-  <!-- Header (kept for visual consistency, no link to this page anywhere else) -->
+  <!-- Header (this page is not linked in nav anywhere public) -->
   <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Primary">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="index.html">
@@ -59,32 +63,20 @@
       </button>
       <div id="mainNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <!-- normal nav, but this hidden page is NOT linked anywhere -->
-          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun" aria-hidden="true"></i>Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle" aria-hidden="true"></i>About Ayurveda</a></li>
-          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll" aria-hidden="true"></i>Assessment</a></li>
-          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling" aria-hidden="true"></i>Lifestyle</a></li>
-          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf" aria-hidden="true"></i>Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-om" aria-hidden="true"></i>FAQs</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja" aria-hidden="true"></i>About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-sun me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-ayurveda.html"><i class="fa-solid fa-mortar-pestle me-1"></i>About Ayurveda</a></li>
+          <li class="nav-item"><a class="nav-link" href="test.html"><i class="fa-solid fa-scroll me-1"></i>Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="lifestyle.html"><i class="fa-solid fa-seedling me-1"></i>Lifestyle</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fa-solid fa-leaf me-1"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html"><i class="fa-solid fa-circle-question me-1"></i>FAQs</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fa-solid fa-user-ninja me-1"></i>About</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- LOCKED MESSAGE (shows if token missing/wrong) -->
-  <main id="locked-msg" class="flex-grow-1">
-    <section class="py-5 soft border-bottom">
-      <div class="container">
-        <span class="badge rounded-pill badge-ayu mb-3"><i class="fa-solid fa-lock me-1"></i> Restricted</span>
-        <h1 class="display-6 mb-2">Page Not Available</h1>
-        <p class="text-muted mb-0">This page is restricted to faculty. Please use the exact link provided by the instructor.</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- FACULTY CONTENT -->
-  <main id="faculty-content" class="flex-grow-1">
+  <!-- MAIN -->
+  <main id="main" class="flex-grow-1">
     <!-- Header band -->
     <header class="py-5 soft border-bottom">
       <div class="container">
@@ -100,7 +92,7 @@
     <section class="py-5">
       <div class="container">
         <div class="row g-4">
-          <!-- Team Table -->
+          <!-- Team & Roles -->
           <div class="col-lg-7">
             <div class="card card-ayu shadow-sm h-100">
               <div class="card-body">
@@ -128,7 +120,7 @@
                       <tr>
                         <td>Hardik Khandelwal</td>
                         <td>IPM05151</td>
-                        <td>QA: cross‑browser testing, responsive checks</td>
+                        <td>QA: cross-browser testing, responsive checks</td>
                       </tr>
                     </tbody>
                   </table>
@@ -138,7 +130,7 @@
             </div>
           </div>
 
-          <!-- Design Philosophy -->
+          <!-- Right column: only Design Philosophy (logo section removed) -->
           <div class="col-lg-5">
             <div class="card card-ayu shadow-sm h-100">
               <div class="card-body">
@@ -147,9 +139,9 @@
                   <li><strong>Safety-first content:</strong> Educational, no medical claims; disclaimers on every page.</li>
                   <li><strong>Plain language:</strong> Short, scannable sections; consistent headings and icons.</li>
                   <li><strong>Accessibility:</strong> Skip links, labeled controls, sufficient color contrast, keyboard-friendly UI.</li>
-                  <li><strong>Performance:</strong> Minimal JS, CDN Bootstrap, deferred scripts, optimized assets.</li>
+                  <li><strong>Performance:</strong> Minimal JS, CDN Bootstrap, optimized assets.</li>
                   <li><strong>Soft personalization:</strong> LocalStorage (no login) to reorder tips/products by dosha.</li>
-                  <li><strong>Consistent theming:</strong> Shared `theme.css` variables for colors/spacing/rounded corners.</li>
+                  <li><strong>Consistent theming:</strong> Shared <code>theme.css</code> variables for colors/spacing/radius.</li>
                 </ul>
                 <p class="small text-muted mb-0">Tech stack: HTML, CSS (Bootstrap + custom), light JS. No backend required.</p>
               </div>
@@ -181,28 +173,457 @@
             <div class="card card-ayu shadow-sm h-100">
               <div class="card-body">
                 <h2 class="h5 mb-2"><i class="fa-solid fa-location-dot me-2" aria-hidden="true"></i>Public Placement (if used)</h2>
-                <p class="mb-2">If we were to add testimonials publicly, we’d place them:</p>
+                <p class="mb-2">If we add testimonials publicly, we’ll place them:</p>
                 <ul class="mb-2">
                   <li>As a small carousel under the hero on <strong>Home</strong>.</li>
                   <li>As a single highlighted quote at the end of <strong>Lifestyle</strong>.</li>
                 </ul>
-                <p class="small text-muted mb-0">We would not collect or display real user data without consent.</p>
+                <p class="small text-muted mb-0">We will not collect or display real user data without consent.</p>
               </div>
             </div>
           </div>
         </div>
+      </div> <!-- /container -->
+    </section>
 
-        <!-- Submission notes -->
-        <div class="row g-4 mt-1">
-          <div class="col-12">
-            <div class="alert alert-warning mb-0" role="alert">
-              <i class="fa-solid fa-triangle-exclamation me-2" aria-hidden="true"></i>
-              For evaluation only. Please keep this URL confidential. Page carries <strong>noindex</strong> and is not linked anywhere.
-            </div>
-          </div>
+    <!-- Standalone submission note (won’t overlap anything) -->
+    <section class="py-0">
+      <div class="container">
+        <div class="alert alert-warning mt-3" role="alert">
+          <i class="fa-solid fa-triangle-exclamation me-2" aria-hidden="true"></i>
+          For evaluation only. Keep this URL confidential. Page carries <strong>noindex</strong> and is not linked anywhere.
         </div>
       </div>
     </section>
+
+    <!-- ====== WBD Project Requirements (Faculty Checklist) ====== -->
+    <section class="checklist-section py-5">
+      <div class="container">
+        <div class="d-flex align-items-center mb-3">
+          <span class="badge rounded-pill badge-ayu me-2"><i class="fa-solid fa-list-check me-1"></i> Checklist</span>
+          <h2 class="h4 mb-0">WBD Project Requirements</h2>
+        </div>
+
+        <div class="row g-4">
+          <!-- Column A -->
+          <div class="col-lg-6">
+            <!-- Project Setup & Documentation -->
+            <div class="card checklist-card shadow-sm mb-4">
+              <div class="card-body">
+                <h3 class="h6 mb-3"><i class="fa-solid fa-file-lines me-2"></i>Project Setup & Documentation</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Table with team number, member names, roll numbers</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Stakeholders listed</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Submission</div><div class="task-help">Complete &amp; submit before deadline</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Core Technical Requirements -->
+            <div class="card checklist-card shadow-sm mb-4">
+              <div class="card-body">
+                <h3 class="h6 mb-3"><i class="fa-solid fa-code me-2"></i>Core Technical Requirements</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Stack</div><div class="task-help">Use HTML, CSS, JavaScript</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Page Count</div><div class="task-help">5–6 main pages</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Semantic HTML</div><div class="task-help">&lt;header&gt;, &lt;footer&gt;, &lt;nav&gt;, etc.</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Central CSS</div><div class="task-help">Single global stylesheet</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Framework Use</div><div class="task-help">Bootstrap (or approved alternative)</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Accessible Forms &amp; Validation</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Security & Configuration -->
+            <div class="card checklist-card shadow-sm mb-4">
+              <div class="card-body">
+                <h3 class="h6 mb-3"><i class="fa-solid fa-shield-halved me-2"></i>Security &amp; Configuration Files</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Security.txt</div><div class="task-help">At site root</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Robots.txt</div><div class="task-help">At site root</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">HTTPS (SSL)</div><div class="task-help">Serve site securely</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Hidden / Instructors-only -->
+            <div class="card checklist-card shadow-sm mb-4">
+              <div class="card-body">
+                <h3 class="h6 mb-3"><i class="fa-solid fa-user-shield me-2"></i>Hidden/Instructors-only Page</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Access Restriction</div><div class="task-help">Instructor only</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Handwritten HTML</div><div class="task-help">No auto-generation</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Team Table</div><div class="task-help">Members &amp; roles listed</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Testimonial</div><div class="task-help">Added</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Consumer Profile</div><div class="task-help">Who are you catering to?</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Design Philosophy</div><div class="task-help">Written in the Hidden page</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div>
+                      <div class="task-title">Philosophy of logo</div>
+                      <div class="task-help">Documented reasoning behind logo design</div>
+                    </div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Survey</div><div class="task-help">Survey for design</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column B -->
+          <div class="col-lg-6">
+            <!-- Design & UX -->
+            <div class="card checklist-card shadow-sm mb-4">
+              <div class="card-body">
+                <h3 class="h6 mb-3"><i class="fa-solid fa-palette me-2"></i>Design &amp; User Experience</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Consistent Design</div><div class="task-help">Uniform look &amp; documented method</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Mobile Responsive</div><div class="task-help">Works on phones &amp; tablets</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Favicon</div><div class="task-help">Add favicon</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Icons on Links</div><div class="task-help">Icon for every navigation/action link</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Accessibility & Performance -->
+            <div class="card checklist-card shadow-sm mb-4">
+              <div class="card-body">
+                <h3 class="h6 mb-3"><i class="fa-solid fa-universal-access me-2"></i>Accessibility &amp; Performance</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Accessibility</div><div class="task-help">Screen-readable &amp; accessible</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Performance</div><div class="task-help">Optimized for fast rendering</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Images</div><div class="task-help">Optimized image on every page</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Image Optimization</div><div class="task-help">Documented</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Figure Labelling</div><div class="task-help">"Lower is better" / "Higher is better"</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable" selected>Not applicable</option>
+                      <option value="done">Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- SEO & Marketing -->
+            <div class="card checklist-card shadow-sm mb-4">
+              <div class="card-body">
+                <h3 class="h6 mb-3"><i class="fa-solid fa-magnifying-glass-chart me-2"></i>SEO &amp; Marketing</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">SEO Keywords</div><div class="task-help">Selected with reasoning</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">SEO Ranking Check</div><div class="task-help">Recorded</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Sitemap</div><div class="task-help">HTML or XML created</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Social Buttons</div><div class="task-help">Implemented</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Hosting & Deployment -->
+            <div class="card checklist-card shadow-sm mb-4">
+              <div class="card-body">
+                <h3 class="h6 mb-3"><i class="fa-solid fa-rocket me-2"></i>Hosting &amp; Deployment</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Public Availability</div><div class="task-help">Site &amp; code publicly accessible</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Public URL</div><div class="task-help">For robots.txt provided</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Ngrok Hosting</div><div class="task-help">Temporary testing via ngrok</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done">Done</option>
+                      <option value="to-be-done" selected>To be done</option>
+                      <option value="attached">Attached</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Special Features -->
+            <div class="card checklist-card shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 mb-3"><i class="fa-solid fa-star me-2"></i>Special Features</h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">Google Map</div><div class="task-help">On "About Us" page</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div><div class="task-title">LinkedIn Profile Link</div><div class="task-help">Optional</div></div>
+                    <select class="form-select form-select-sm status-select">
+                      <option value="not-applicable">Not applicable</option>
+                      <option value="done" selected>Done</option>
+                      <option value="to-be-done">To be done</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div><!-- /col B -->
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </section>
+    <!-- ====== /Checklist ====== -->
   </main>
 
   <!-- FOOTER -->
@@ -227,24 +648,5 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
   ></script>
-
-  <!-- Soft gate: require token in URL (e.g., ?t=IIMR) -->
-  <script>
-    (function () {
-      const url = new URL(window.location.href);
-      const token = url.searchParams.get('t');
-      const REQUIRED = 'IIMR'; // change if you want
-
-      // unlock only with correct token
-      if (token === REQUIRED) {
-        document.body.setAttribute('data-locked', '0');
-      } else {
-        document.body.setAttribute('data-locked', '1');
-      }
-
-      // OPTIONAL: warn if page is opened from an <a target="_blank"> without token
-      // (No alerts shown to normal users anywhere else)
-    })();
-  </script>
 </body>
 </html>
